@@ -1,0 +1,17 @@
+# Solar Scientific RAG review project
+# No third-party runtime dependencies are required for the current synthetic-validation scaffold.
+# The project uses the Python standard library only for implementation, validation, and tests.
+#
+# Development/test environment:
+# - Python 3.14.2 was the version used for the verified synthetic validation in this workspace.
+# - Use the standard-library unittest runner from the project root.
+# - pytest is not installed and is not part of the supported validation path.
+#
+# Clean-environment setup:
+#   python -m venv .venv
+#   .\.venv\Scripts\python -m pip install --upgrade pip
+#   $env:PYTHONPATH = "src"
+#   .\.venv\Scripts\python -m unittest discover -s tests -q
+#   .\.venv\Scripts\python scripts\run_synthetic_pilot.py
+#   .\.venv\Scripts\python -m compileall src
+#   .\.venv\Scripts\python -m solar_rag.cli validate-config config\experiment.example.json

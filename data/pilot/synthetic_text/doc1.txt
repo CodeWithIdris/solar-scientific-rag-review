@@ -1,0 +1,1 @@
+SYNTHETIC FIXTURE ONLY. In this invented example, the test module has a reported efficiency of 18 percent under condition A. This sentence is fabricated solely to test software behavior.

@@ -1,0 +1,36 @@
+{
+  "fixture_type": "synthetic_software_validation_only",
+  "chunking": {
+    "max_chars": 1000,
+    "overlap_chars": 0
+  },
+  "context_budget_tokens": 200,
+  "retrieval_cutoff": 2,
+  "bm25": {
+    "tokenizer": "solar_rag.retrieval.scientific_tokens",
+    "k1": 1.2,
+    "b": 0.75
+  },
+  "dense": {
+    "model_id": "synthetic-test-only",
+    "similarity": "cosine"
+  },
+  "hybrid": {
+    "fusion": "RRF",
+    "rank_constant": 10,
+    "weights": {
+      "bm25": 1,
+      "dense": 1
+    },
+    "bm25_candidate_depth": 2,
+    "dense_candidate_depth": 2
+  },
+  "generator": {
+    "model_id": "synthetic-generator-test-only",
+    "generation_parameters": {
+      "temperature": 0
+    },
+    "prompt_version": "synthetic-prompt-v1"
+  },
+  "warning": "Values are fixture-only and do not resolve any Phase 1-5 experimental decision."
+}

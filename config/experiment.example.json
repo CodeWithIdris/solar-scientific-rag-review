@@ -1,0 +1,108 @@
+{
+  "schema_version": "1",
+  "study_id": "solar-pv-retrieval-qa",
+  "research_question": "How do BM25, dense, and hybrid retrieval strategies, compared under identical corpus, question-benchmark, preprocessing, generator, prompt, and evaluation conditions, affect retrieval quality, answer quality, and evidence attribution in question answering over solar-PV scientific literature?",
+  "primary_arms": [
+    "bm25",
+    "dense",
+    "hybrid"
+  ],
+  "shared_controls": {
+    "corpus_version": null,
+    "preprocessing_version": null,
+    "chunking_version": null,
+    "benchmark_version": null,
+    "context_budget": null,
+    "generator": null,
+    "prompt_version": null,
+    "generation_parameters": null,
+    "evaluation_version": null,
+    "random_seed": null
+  },
+  "decisions": {
+    "corpus_version": {
+      "status": "OPEN",
+      "value": null,
+      "phase": "3"
+    },
+    "preprocessing_version": {
+      "status": "OPEN",
+      "value": null,
+      "phase": "2/6"
+    },
+    "chunking": {
+      "status": "OPEN",
+      "value": null,
+      "phase": "2"
+    },
+    "bm25_analyzer_and_parameters": {
+      "status": "OPEN",
+      "value": null,
+      "phase": "2"
+    },
+    "dense_model_and_encoding": {
+      "status": "OPEN",
+      "value": null,
+      "phase": "2"
+    },
+    "vector_index_and_similarity": {
+      "status": "OPEN",
+      "value": null,
+      "phase": "2"
+    },
+    "hybrid_fusion_and_candidate_budget": {
+      "status": "PROVISIONAL",
+      "value": null,
+      "candidate": "RRF; parameters and budget remain unresolved",
+      "phase": "2"
+    },
+    "retrieval_cutoffs": {
+      "status": "OPEN",
+      "value": null,
+      "phase": "2/5"
+    },
+    "context_budget": {
+      "status": "OPEN",
+      "value": null,
+      "phase": "2"
+    },
+    "generator_and_decoding": {
+      "status": "OPEN",
+      "value": null,
+      "phase": "1/2"
+    },
+    "prompt": {
+      "status": "OPEN",
+      "value": null,
+      "phase": "2"
+    },
+    "benchmark_version_and_split": {
+      "status": "OPEN",
+      "value": null,
+      "phase": "4"
+    },
+    "evaluation_rubrics_and_thresholds": {
+      "status": "OPEN",
+      "value": null,
+      "phase": "4/5"
+    },
+    "latency_protocol": {
+      "status": "OPEN",
+      "value": null,
+      "phase": "5"
+    },
+    "retry_and_timeout_policy": {
+      "status": "OPEN",
+      "value": null,
+      "phase": "5/6"
+    }
+  },
+  "provenance": {
+    "git_commit": null,
+    "software_versions": {},
+    "hardware": null
+  },
+  "secrets": {
+    "provider_credentials": "Read from environment or secret manager; never store here."
+  }
+}
