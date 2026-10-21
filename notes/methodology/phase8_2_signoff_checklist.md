@@ -120,8 +120,7 @@ API queries must use deterministic parameters and log raw responses:
 
 #### 2.2.3 Predefined 10 Known-Item Landmark Benchmark Papers
 
-> [!WARNING]
-> **DEC-05 STATUS (Candidates Recorded; Final Eligibility Audit Open):** The researcher approved the ten candidate papers in principle on 2026-10-21. Publisher records confirm titles, DOIs, and 2024 publication metadata for the candidates; the current list nevertheless uses six topical labels while the protocol requires five declared subdomains. KI-01 and KI-08 have not been confirmed as lawful OA full-text corpus inputs. Resolve the stratum mapping and record metadata-discovery sensitivity separately from full-text corpus eligibility before pilot authorization.
+> **DEC-05 STATUS (FROZEN 2026-10-21):** The researcher approved the KI-10 replacement. The ten known-item records are mapped to five declared subdomains, with two papers per subdomain. This list is frozen for metadata-discovery sensitivity, not total corpus recall. Full-text access is assessed separately during corpus screening: a paper without confirmed lawful full text may count for metadata-discovery sensitivity but must not be ingested into the experimental corpus unless eligibility and lawful access are confirmed.
 
 | Item ID | Topic Subdomain | Candidate paper title | First author / year | DOI | Bibliographic source and current eligibility note |
 |---|---|---|---|---|---|
@@ -134,7 +133,7 @@ API queries must use deterministic parameters and log raw responses:
 | **KI-07** | PV forecasting | Photovoltaic power forecasting: A Transformer based framework | Piantadosi et al. (2024) | [10.1016/j.egyai.2024.100444](https://doi.org/10.1016/j.egyai.2024.100444) | [Energy and AI publisher record](https://www.sciencedirect.com/science/article/pii/S2666546824001101); research article, open access; title, DOI and year verified. |
 | **KI-08** | PV forecasting | Probabilistic day-ahead prediction of PV generation. A comparative analysis of forecasting methodologies and of the factors influencing accuracy | Massidda et al. (2024) | [10.1016/j.solener.2024.112422](https://doi.org/10.1016/j.solener.2024.112422) | [Solar Energy publisher record](https://www.sciencedirect.com/science/article/pii/S0038092X24001166); title, DOI and 2024 publication verified. Full-text lawful-access eligibility remains to be checked; metadata discovery can be assessed separately. |
 | **KI-09** | Emerging PV | Long-term outdoor study of an organic photovoltaic module for building integration | Luo et al. (2024) | [10.1002/pip.3791](https://doi.org/10.1002/pip.3791) | [Wiley publisher record](https://onlinelibrary.wiley.com/doi/10.1002/pip.3791); research article, open access; title, DOI and year verified. |
-| **KI-10** | PV life-cycle assessment | Comparative life cycle assessment of photovoltaic systems: An evaluation of environmental impacts over time | Hottenroth & Viere (2024) | [10.1016/j.procir.2024.02.005](https://doi.org/10.1016/j.procir.2024.02.005) | [Procedia CIRP publisher record](https://www.sciencedirect.com/science/article/pii/S2212827124000246); open-access proceedings paper; title, DOI and year verified. Confirm proceedings peer-review/type mapping against corpus eligibility rules. |
+| **KI-10** | Emerging PV | Organic Solar Modules with Good Stability under Ultraviolet Irradiation | Tran Ho et al. (2024) | [10.1002/solr.202400101](https://doi.org/10.1002/solr.202400101) | [Wiley publisher record](https://onlinelibrary.wiley.com/doi/10.1002/solr.202400101); *Solar RRL* 8(11), article 2400101; open-access peer-reviewed research article; first published 2024-04-06. Publisher and institutional repository records support title, DOI, year, OA, and article type. |
 
 #### 2.2.4 Known-Item Retrieval Sensitivity Calculation
 $$\text{Sensitivity}_{\text{known-item}} = \left( \frac{\text{Count of Predefined Known Items in } N_{\text{unique}}}{10} \right) \times 100\%$$
@@ -257,9 +256,9 @@ To ensure compliance with scientific integrity protocols, the following actions 
 - **DO NOT** alter the frozen research question.
 
 ### 4.2 Current Gate Verdict
-- **Protocol Consistency & Sign-Off Checklist:** **UPDATED; PARTIAL SIGN-OFF RECORDED**
-- **Researcher Explicit Sign-Off:** **INCOMPLETE** — DEC-02 and hypothesis framing approved; DEC-05 candidates approved in principle.
-- **Known-item eligibility audit:** **OPEN** — titles/DOIs/year verified against publisher records where available; the list currently spans six topical labels rather than five declared strata. KI-01 and KI-08 full texts are not confirmed as lawful OA corpus inputs.
-- **Real-Paper Discovery Authorization:** **BLOCKED**
-- **Scientific Corpus Readiness:** **BLOCKED**
-- **Confirmatory Experiment Readiness:** **BLOCKED**
+- **Protocol Consistency & Sign-Off Checklist:** **COMPLETE — PROTOCOL CLOSED 2026-10-21**
+- **Researcher Policy/Procedure Sign-Off:** **COMPLETE** — DEC-01 through DEC-14 resolved or explicitly assigned to pilot/development stages.
+- **Known-item benchmark:** **FROZEN** — ten metadata-discovery targets mapped to five subdomains, two per subdomain. Full-text eligibility is a separate corpus-screening decision.
+- **Pilot execution:** **ON HOLD — NOT AUTHORIZED YET BY USER REQUEST**; both pilots remain unrun.
+- **Scientific Corpus Readiness:** **NOT ESTABLISHED** — no corpus has been acquired or screened.
+- **Confirmatory Experiment Readiness:** **BLOCKED** — benchmark, corpus, and development-stage values remain unbuilt/unvalidated.
