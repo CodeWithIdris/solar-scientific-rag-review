@@ -248,8 +248,8 @@ Researcher decisions recorded on 2026-10-21. Policy/selection procedures are app
 ### 4.1 Strict Operational Prohibitions
 To ensure compliance with scientific integrity protocols, the following actions remain **STRICTLY PROHIBITED**:
 - **DO NOT** execute web scraping or download real scientific papers.
-- **DO NOT** execute the 300-slot pilot search or query live APIs until sign-off is given.
-- **DO NOT** execute the 20-paper PDF extraction pilot until sign-off is given.
+- **DO NOT** execute the 300-slot pilot search or query live APIs until separate execution authorization is provided.
+- **DO NOT** execute the 20-paper PDF extraction pilot until separate execution authorization is provided.
 - **DO NOT** construct or populate the Phase 4 question benchmark.
 - **DO NOT** select production embedding models, dense vector indexes, or generator LLMs.
 - **DO NOT** run retrieval or generation experiments.
