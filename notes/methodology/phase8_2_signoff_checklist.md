@@ -3,7 +3,7 @@
 **Project:** Solar Scientific RAG Literature Review  
 **Date:** 2026-10-21  
 **Phase:** Phase 8.2 — Final Protocol Consistency & Sign-Off Gate  
-**Status:** PROTOCOL FINALIZATION COMPLETE — REAL-PAPER DISCOVERY & PILOT SEARCHES BLOCKED PENDING RESEARCHER SIGN-OFF  
+**Status:** PARTIAL RESEARCHER SIGN-OFF RECORDED — DEC-02/HYPOTHESES APPROVED; DEC-05 CANDIDATES APPROVED IN PRINCIPLE; FINAL ELIGIBILITY AUDIT AND REMAINING SIGN-OFFS PENDING  
 
 ---
 
@@ -123,18 +123,18 @@ API queries must use deterministic parameters and log raw responses:
 > [!WARNING]
 > **CRITICAL BLOCKER 1 (Uninstantiated Known-Item Benchmark):** Table 2.2.3 currently defines target technological scopes and representative journal venues, but lacks specific, resolved paper titles and DOIs. To ensure an executable benchmark test set and prevent post-hoc cherry-picking, the researcher must nominate and freeze 10 specific peer-reviewed 2024 papers with verified DOIs before the 300-slot pilot search is executed.
 
-| Item ID | Topic Subdomain | Target Scope & Technical Focus | Representative Publication Venue | Publication Window | Verified DOI / Status |
+| Item ID | Topic Subdomain | Candidate paper title | First author / year | DOI | Bibliographic source and current eligibility note |
 |---|---|---|---|---|---|
-| **KI-01** | Perovskite-Silicon Tandem | 2-terminal tandem efficiency limits and operational stability | *Nature Energy* / *Science* | 2024 | *Awaiting Researcher Nomination* |
-| **KI-02** | TOPCon Silicon Cells | Contact passivation and metallization degradation kinetics | *Solar Energy Materials & Solar Cells* | 2024 | *Awaiting Researcher Nomination* |
-| **KI-03** | Silicon Heterojunction (HJT) | Damp heat stability and light/elevated temperature degradation | *Progress in Photovoltaics* | 2024 | *Awaiting Researcher Nomination* |
-| **KI-04** | Bifacial PV Modules | Rear-side irradiance modeling and albedo sensitivity | *IEEE Journal of Photovoltaics* | 2024 | *Awaiting Researcher Nomination* |
-| **KI-05** | Perovskite Degradation | Accelerated aging protocols (ISOS) and moisture encapsulation | *ACS Energy Letters* | 2024 | *Awaiting Researcher Nomination* |
-| **KI-06** | Inverter & System Reliability | Power electronic thermal stress and IGBT failure modes | *Solar Energy* | 2024 | *Awaiting Researcher Nomination* |
-| **KI-07** | PV Output Forecasting | Physical & ML hybrid solar irradiance prediction models | *Applied Energy* | 2024 | *Awaiting Researcher Nomination* |
-| **KI-08** | Potential-Induced Degradation | PID-polarization and PID-shunting in high-voltage strings | *Progress in Photovoltaics* | 2024 | *Awaiting Researcher Nomination* |
-| **KI-09** | Organic PV (OPV) | Non-fullerene acceptor degradation and indoor PV performance | *Advanced Energy Materials* | 2024 | *Awaiting Researcher Nomination* |
-| **KI-10** | Techno-Economic / LCA | Lifetime greenhouse gas footprint and LCOE for utility-scale PV | *Renewable and Sustainable Energy Reviews* | 2024 | *Awaiting Researcher Nomination* |
+| **KI-01** | Perovskite/tandem | Perovskite/silicon tandem solar cells with bilayer interface passivation | Liu et al. (2024) | [10.1038/s41586-024-07997-7](https://doi.org/10.1038/s41586-024-07997-7) | [Nature publisher record](https://www.nature.com/articles/s41586-024-07997-7); title, DOI and 2024 publication verified. Full-text corpus eligibility to be checked separately. |
+| **KI-02** | Perovskite/tandem | Strained heterojunction enables high-performance, fully textured perovskite/silicon tandem solar cells | Liu et al. (2024) | [10.1016/j.joule.2024.06.015](https://doi.org/10.1016/j.joule.2024.06.015) | [Joule publisher record](https://www.sciencedirect.com/science/article/pii/S2542435124002915); title, DOI and 2024 publication verified; publisher page indicates an open archive. Verify lawful full-text route during corpus screening. |
+| **KI-03** | Silicon cell technology | UV-Induced Degradation of Industrial PERC, TOPCon, and HJT Solar Cells: The Next Big Reliability Challenge? | Thome et al. (2024) | [10.1002/solr.202400628](https://doi.org/10.1002/solr.202400628) | [Wiley publisher record](https://onlinelibrary.wiley.com/doi/full/10.1002/solr.202400628); research article, open access; title, DOI and year verified. |
+| **KI-04** | Silicon cell technology | Enhancing the reliability of TOPCon technology by laser-enhanced contact firing | Wu et al. (2024) | [10.1016/j.solmat.2024.112846](https://doi.org/10.1016/j.solmat.2024.112846) | [Elsevier publisher record](https://www.sciencedirect.com/science/article/pii/S0927024824001582); research article, open access; title, DOI and year verified. |
+| **KI-05** | Module reliability | Electrical Performance and Degradation Analysis of Field-Aged PV Modules in Tropical Climates: A Comparative Experimental Study | Islam et al. (2024) | [10.1016/j.ecmx.2024.100719](https://doi.org/10.1016/j.ecmx.2024.100719) | [Elsevier publisher record](https://www.sciencedirect.com/science/article/pii/S2590174524001971); research article, open access; title, DOI and year verified. |
+| **KI-06** | Module reliability | Buyer aware: Three new failure modes in TOPCon modules absent from PERC technology | Sen et al. (2024) | [10.1016/j.solmat.2024.112877](https://doi.org/10.1016/j.solmat.2024.112877) | [Elsevier publisher record](https://www.sciencedirect.com/science/article/pii/S0927024824001892); journal article, open access; title, DOI and year verified. |
+| **KI-07** | PV forecasting | Photovoltaic power forecasting: A Transformer based framework | Piantadosi et al. (2024) | [10.1016/j.egyai.2024.100444](https://doi.org/10.1016/j.egyai.2024.100444) | [Energy and AI publisher record](https://www.sciencedirect.com/science/article/pii/S2666546824001101); research article, open access; title, DOI and year verified. |
+| **KI-08** | PV forecasting | Probabilistic day-ahead prediction of PV generation. A comparative analysis of forecasting methodologies and of the factors influencing accuracy | Massidda et al. (2024) | [10.1016/j.solener.2024.112422](https://doi.org/10.1016/j.solener.2024.112422) | [Solar Energy publisher record](https://www.sciencedirect.com/science/article/pii/S0038092X24001166); title, DOI and 2024 publication verified. Full-text lawful-access eligibility remains to be checked; metadata discovery can be assessed separately. |
+| **KI-09** | Emerging PV | Long-term outdoor study of an organic photovoltaic module for building integration | Luo et al. (2024) | [10.1002/pip.3791](https://doi.org/10.1002/pip.3791) | [Wiley publisher record](https://onlinelibrary.wiley.com/doi/10.1002/pip.3791); research article, open access; title, DOI and year verified. |
+| **KI-10** | PV life-cycle assessment | Comparative life cycle assessment of photovoltaic systems: An evaluation of environmental impacts over time | Hottenroth and Viere (2024) | [10.1016/j.procir.2024.02.005](https://doi.org/10.1016/j.procir.2024.02.005) | [Procedia CIRP publisher record](https://www.sciencedirect.com/science/article/pii/S2212827124000246); open-access proceedings paper; title, DOI and year verified. Confirm proceedings peer-review/type mapping against corpus eligibility rules. |
 
 #### 2.2.4 Known-Item Retrieval Sensitivity Calculation
 $$\text{Sensitivity}_{\text{known-item}} = \left( \frac{\text{Count of Predefined Known Items in } N_{\text{unique}}}{10} \right) \times 100\%$$
@@ -281,8 +281,9 @@ To ensure compliance with scientific integrity protocols, the following actions 
 - **DO NOT** alter the frozen research question.
 
 ### 4.2 Current Gate Verdict
-- **Protocol Consistency & Sign-Off Checklist:** **COMPLETE**
-- **Researcher Explicit Sign-Off:** **PENDING RESEARCHER ACTION**
+- **Protocol Consistency & Sign-Off Checklist:** **UPDATED; PARTIAL SIGN-OFF RECORDED**
+- **Researcher Explicit Sign-Off:** **INCOMPLETE** — DEC-02 and hypothesis framing approved; DEC-05 candidates approved in principle.
+- **Known-item eligibility audit:** **OPEN** — metadata has been checked against publisher records; full-text access and document-type eligibility remain separate checks.
 - **Real-Paper Discovery Authorization:** **BLOCKED**
 - **Scientific Corpus Readiness:** **BLOCKED**
 - **Confirmatory Experiment Readiness:** **BLOCKED**
