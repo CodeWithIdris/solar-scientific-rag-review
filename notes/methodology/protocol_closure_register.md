@@ -3,7 +3,7 @@
 **Project:** Evaluating Retrieval Strategies for Evidence-Grounded Question Answering over Solar Photovoltaic Scientific Literature  
 **Date:** 2026-10-21  
 **Phase:** Protocol Closure and Consolidation (Pre-Manuscript Drafting)  
-**Status:** PARTIAL RESEARCHER SIGN-OFF RECORDED — DEC-02 AND HYPOTHESIS FRAMING APPROVED; DEC-05 CANDIDATES APPROVED IN PRINCIPLE — FINAL PROTOCOL CLOSURE AND PILOT REMAIN BLOCKED  
+**Status:** PROTOCOL CLOSED — POLICY/PROCEDURE SIGN-OFF COMPLETE 2026-10-21; PILOT EXECUTION HOLD ACTIVE  
 
 ---
 
@@ -34,7 +34,7 @@ The table below consolidates all decisions across corpus design, retrieval archi
 | **DEC-02** | Foundational Chaining | Phase 8.2 rule: disjoint first/corresponding authors across citing papers, <50% middle-author overlap. | **Researcher-approved Alternative B (2026-10-21):** Pre-2024 candidate must be cited by ≥2 core (2024–2026) primary papers with distinct first authors. No author of the candidate may appear anywhere in either citing paper's author list. Review citations do not count. Record author overlap and metadata uncertainty; do not claim this proves independent labs or institutions. | Avoids dependence on unstandardized corresponding-author metadata, prevents direct candidate self-citation, and states the inference narrowly. | `phase8_2_signoff_checklist.md` §2.1; `phase8_3_final_methodological_challenge.md` §3.1; researcher decision recorded 2026-10-21 | **NO — APPROVED 2026-10-21** | **NO** | **RESEARCHER-APPROVED — OPERATIONALIZATION LOCKED** |
 | **DEC-03** | Date Semantics & Precedence | `publication_year` could conflate formal issue year and online date. | **Researcher-approved 2026-10-21:** Formal VoR issue year governs; if absent, verified online VoR date; acceptance date only when publisher-verified and allowed by the inclusion rule. Repository deposit date never substitutes for publication year. Keep disaggregated date fields and `year_source`. | Prevents repository deposit-date leakage. | `corpus_data_dictionary.md` §3; researcher approval 2026-10-21 | **NO — APPROVED** | **NO** | **RESEARCHER-APPROVED — DATE SEMANTICS LOCKED** |
 | **DEC-04** | Discovery Sources & Query Execution | Multi-source discovery and pinned Q1–Q4 query families. | **Researcher-approved 2026-10-21:** Use OpenAlex, Crossref, Semantic Scholar, and lawful OA repositories; log queries/parameters; make no exhaustiveness claim; deterministic client-side ordering is fallback. API pagination and server-side sorting remain pilot-verification items. | Auditable multi-source search without overstating coverage. | `corpus_acquisition_workflow.md`; researcher approval 2026-10-21 | **NO — PROCEDURE APPROVED** | **YES — endpoint behavior pilot-dependent** | **PROCEDURE APPROVED; TECHNICAL VERIFICATION PENDING PILOT** |
-| **DEC-05** | Query Registry & Known Items | Four query families (Q1–Q4) and 10 known-item papers; candidate list was previously uninstantiated. | Researcher approved the ten proposed candidates in principle on 2026-10-21, subject to final bibliographic and eligibility checks. Candidate titles, DOIs, years, first-author metadata, publisher source links, and access caveats are recorded in `phase8_2_signoff_checklist.md` §2.2.3. Replace and re-present any candidate that fails verification; do not silently substitute. Known-item sensitivity is a metadata-discovery sanity check, not corpus recall. | Makes the test executable while preserving a pre-search freeze and separating metadata discovery from lawful full-text eligibility. | `phase8_2_signoff_checklist.md` §2.2.3; `phase8_3_final_methodological_challenge.md` §3.3; researcher decision recorded 2026-10-21 | **PARTIAL — candidate set approved in principle; replacements require review** | **YES** (300-slot pilot, only after protocol closure) | **APPROVED IN PRINCIPLE — FINAL ELIGIBILITY AUDIT OPEN** |
+| **DEC-05** | Query Registry & Known Items | Four query families (Q1–Q4) and ten known-item papers. | **Researcher-approved and frozen 2026-10-21:** KI-10 replaced by “Organic Solar Modules with Good Stability under Ultraviolet Irradiation” (DOI 10.1002/solr.202400101). Ten metadata-discovery targets are mapped to five declared subdomains with two items each. Known-item sensitivity tests metadata discovery, not total corpus recall. Lawful full-text access is checked separately during corpus screening; inaccessible items are not ingested. | Creates an executable, pre-frozen discovery sanity check and separates metadata discovery from full-text corpus eligibility. | `phase8_2_signoff_checklist.md` §2.2.3; publisher metadata; researcher approval 2026-10-21 | **NO — DECISION RESOLVED** | **YES — only after separate pilot authorization** | **CLOSED — BENCHMARK FROZEN; FULL-TEXT SCREENING SEPARATE** |
 | **DEC-06** | Document Stratification | Dual index: primary research and sensitivity corpus including reviews. | **Researcher-approved 2026-10-21:** `I_primary` includes eligible primary journal articles and peer-reviewed conference papers; `I_all` adds eligible reviews/systematic reviews. Retractions and corrections excluded from chunks; evaluation conditions remain matched. | Separates primary evaluation from review sensitivity analysis. | `phase3_corpus_design_protocol.md` §4; `corpus_data_dictionary.md` §2; researcher approval 2026-10-21 | **NO — APPROVED** | **NO** | **RESEARCHER-APPROVED — INDEX RULE LOCKED** |
 | **DEC-07** | Text-First Artifact Policy | Text-first extraction of article text, captions, tables, and available math representations. | **Researcher-approved 2026-10-21:** Retain text, captions, structured tables, available LaTeX/MathML; do not index raw image pixels; log extraction failures and OCR provenance. Threshold values remain pilot-dependent under DEC-08. | Preserves evidence-bearing text and exposes extraction limits. | `corpus_data_dictionary.md`; extraction workflow; researcher approval 2026-10-21 | **NO — APPROVED** | **YES — calibration pilot for threshold estimates** | **RESEARCHER-APPROVED — EXTRACTION SCOPE LOCKED** |
 | **DEC-08** | Extraction Quality Thresholds | Numerical CER/WER thresholds were intentionally left open. | **Researcher-approved procedure 2026-10-21:** Set numeric extraction-quality thresholds from the stratified 20-paper calibration pilot; report observed distributions, rationale, and exclusions. Values remain pending that pilot. | Avoids arbitrary cutoffs. | `phase8_2_signoff_checklist.md`; extraction workflow; researcher approval 2026-10-21 | **NO — PROCEDURE APPROVED** | **YES — 20-paper calibration pilot** | **PROCEDURE APPROVED; NUMERIC VALUES PILOT-DEPENDENT** |
@@ -79,11 +79,12 @@ The table below consolidates all decisions across corpus design, retrieval archi
 ### 4.1 Researcher decisions recorded on 2026-10-21
 - **DEC-02 — APPROVED:** Alternative B: at least two qualifying core primary citing papers with distinct first authors and no author overlap between the earlier candidate and either citing paper. This does not establish research-group or institutional independence.
 - **Hypothesis formulations — APPROVED:** Directional H1 for retrieval-level Recall@k/MRR; cautious downstream answer-quality and general attribution comparisons; H4 exploratory and non-directional.
-- **DEC-05 — APPROVED IN PRINCIPLE:** The ten candidate known-item papers may be included after bibliographic and eligibility checks. Failed candidates must be flagged and replacements presented for review. No pilot has been authorized.
+- **DEC-05 — CLOSED:** The ten known-item metadata targets are frozen in `phase8_2_signoff_checklist.md` §2.2.3, including the approved KI-10 replacement. Five subdomains have two targets each. This freezes the metadata-discovery test; lawful full-text access remains a separate inclusion condition for the experimental corpus. No pilot has been authorized.
 
 ### 4.2 Remaining decisions and pilot-dependent items
-- **Remaining protocol closure blocker:** DEC-05 requires reconciliation of the ten candidates with the five declared subdomains and separate confirmation of full-text eligibility. The remaining policy/selection procedures DEC-01, DEC-03, DEC-04, DEC-06–DEC-13 were approved as a bundle on 2026-10-21. Numeric extraction thresholds, actual production model/parameter values, and final benchmark size remain deliberately pilot/development-dependent.
-- **DEC-05 final eligibility audit:** Confirm title, DOI, year, publication type, topic, and lawful full-text availability. Metadata known-item sensitivity and full-text corpus eligibility are distinct. If a candidate fails the declared rules, pause and present a replacement for researcher review.
+- **Protocol closure audit: PASS.** DEC-01 through DEC-14 policies/procedures have researcher sign-off; the known-item benchmark is frozen and balanced at two items per each of five subdomains. Pilot-dependent values remain deliberately unresolved under their approved decision procedures.
+- **Corpus-screening condition:** For every discovered paper, verify publication type, topic, eligibility, and lawful full-text access before ingestion. A known-item can be counted for metadata discovery without being eligible for corpus ingestion.
+- **Execution hold:** The researcher explicitly instructed on 2026-10-21 not to run any pilot yet. Both the 300-slot discovery pilot and 20-paper extraction calibration pilot remain blocked pending separate authorization.
 - **DEC-08 pilot-dependent:** Extraction quality thresholds remain open until the approved 20-paper calibration pilot is performed and documented.
 - **DEC-04/DEC-05 pilot-dependent:** API endpoint behavior and deterministic sorting remain unverified until an authorized pilot.
 - **DEC-11/DEC-12/DEC-13:** Production models, parameters, and benchmark size remain unresolved; freeze these before confirmatory test evaluation, using development data and prospective precision/power assessment as specified in the analysis plan.
@@ -94,17 +95,17 @@ The table below consolidates all decisions across corpus design, retrieval archi
 
 ```
 =============================================================================================
-EXECUTION GATE: PARTIAL SIGN-OFF RECORDED — PROTOCOL NOT YET CLOSED; DISCOVERY AND EXPERIMENT REMAIN BLOCKED
+EXECUTION GATE: PROTOCOL CLOSED — NO PILOT AUTHORIZED YET; EXECUTION HOLD ACTIVE
 =============================================================================================
-[X] PROTOCOL DESIGN CONSOLIDATED: notes/methodology/protocol_closure_register.md
-[X] DEC-01, DEC-03, DEC-04, DEC-06–DEC-13 POLICY/SELECTION PROCEDURES APPROVED: 2026-10-21
-[X] DEC-02 CITATION CHAINING RULE APPROVED: 2026-10-21
-[~] DEC-05 CANDIDATES APPROVED IN PRINCIPLE; FIVE-STRATUM MAPPING / FULL-TEXT ELIGIBILITY OPEN
-[X] HYPOTHESIS FORMULATIONS APPROVED: 2026-10-21
-[ ] 300-SLOT DISCOVERY PILOT: BLOCKED
-[ ] 20-PAPER EXTRACTION CALIBRATION PILOT: BLOCKED
-[ ] REAL FULL-TEXT DOWNLOADING: BLOCKED
-[ ] QUESTION BENCHMARK CONSTRUCTION: BLOCKED
+[X] PROTOCOL FORMALLY CLOSED: 2026-10-21
+[X] DEC-01–DEC-14 POLICY/PROCEDURE SIGN-OFF RECORDED
+[X] DEC-05 KNOWN-ITEM METADATA BENCHMARK FROZEN: 10 ITEMS / 5 SUBDOMAINS / 2 ITEMS PER SUBDOMAIN
+[X] KI-10 REPLACEMENT APPROVED AND RECORDED: DOI 10.1002/solr.202400101
+[!] USER EXECUTION HOLD: DO NOT RUN ANY PILOT UNTIL SEPARATE AUTHORIZATION
+[ ] 300-SLOT DISCOVERY PILOT: NOT RUN; BLOCKED BY USER HOLD
+[ ] 20-PAPER EXTRACTION CALIBRATION PILOT: NOT RUN; BLOCKED BY USER HOLD
+[ ] REAL FULL-TEXT DOWNLOADING: NOT AUTHORIZED
+[ ] QUESTION BENCHMARK CONSTRUCTION: NOT AUTHORIZED
 [ ] CONFIRMATORY EXPERIMENT EXECUTION: BLOCKED
 =============================================================================================
 ```
