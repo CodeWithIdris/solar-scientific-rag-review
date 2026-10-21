@@ -220,51 +220,27 @@ The following matrix documents each protocol decision, rationale, remaining unce
 
 ```
 ==================================================================================================================================================
-RESEARCHER PROTOCOL SIGN-OFF MATRIX
-==================================================================================================================================================
-ID     Topic                     Current Policy                                    Rationale & Evidence          Remaining Uncertainty  Status
---------------------------------------------------------------------------------------------------------------------------------------------------
-DEC-01 Core Publication Window   2024–2026 inclusive based on formal VoR year      Captures contemporary PV tech Exact upper-bound date PROVISIONAL —
-                                 (Crossref/publisher authoritative metadata).      while maintaining bounded     at search execution.   PENDING RESEARCHER
-                                                                                   discovery frame.                                     SIGN-OFF
---------------------------------------------------------------------------------------------------------------------------------------------------
-DEC-02 Pre-2024 Chaining         >=2 core primary citing papers with distinct     Prevents direct candidate    Candidate yield remains RESEARCHER-APPROVED
-                                 first authors; no candidate-author overlap.       self-citation; does not      unknown until search.  2026-10-21
-                                 Does not claim research-group independence.       claim lab independence.
---------------------------------------------------------------------------------------------------------------------------------------------------
-DEC-03 Date Precedence           Formal VoR > Online-First > Accepted Manuscript.  Prevents historical papers    None (precedence order PROVISIONAL —
-                                 Deposit date substitution strictly prohibited.    from masquerading as new via  deterministic).        PENDING RESEARCHER
-                                 Discrepancies >1 yr logged.                       recent repository uploads.                           SIGN-OFF
---------------------------------------------------------------------------------------------------------------------------------------------------
-DEC-04 Discovery Source Mix      Multi-source: OpenAlex, Crossref, Semantic        Combines broad discovery with Cross-source overlap   PROVISIONAL —
-                                 Scholar, lawful OA repositories. No single        authoritative DOI metadata    ratio (tested in       PENDING RESEARCHER
-                                 source claimed complete.                          and open access resolution.   300-slot pilot).       SIGN-OFF
---------------------------------------------------------------------------------------------------------------------------------------------------
-DEC-05 Query Registry            Four query families; ten candidate known-items   Makes known-item test         API sorting and final   PARTIALLY APPROVED
-                                 approved in principle subject to final checks.   executable; separates        eligibility checks     2026-10-21;
-                                                                                   metadata discovery from OA.  remain open.           ELIGIBILITY OPEN
---------------------------------------------------------------------------------------------------------------------------------------------------
-DEC-06 Review Stratification     I_primary: primary research articles only.        Prevents review summaries     None (index boundary   PROVISIONAL —
-                                 I_all: primary research + review articles.        acting as artificial shortcut locked).               PENDING RESEARCHER
-                                 Identical benchmark/prompts across both.          confounds in primary RQ.                             SIGN-OFF
---------------------------------------------------------------------------------------------------------------------------------------------------
-DEC-07 Artifact Preservation     Text-first: captions, structured tables, and      Preserves scientific meaning  None (scope locked to  PROVISIONAL —
-                                 LaTeX/MathML formulas; image pixels excluded.     without confounding retrieval text-first).           PENDING RESEARCHER
-                                 Supplementary text archived in metadata.          with vision capabilities.                            SIGN-OFF
---------------------------------------------------------------------------------------------------------------------------------------------------
-DEC-08 Extraction Thresholds     Open threshold protocol; numerical cutoffs        Avoids fabricating arbitrary  Awaiting 20-PDF pilot  OPEN —
-                                 established from 20-paper empirical pilot         error rates before empirical  measurements.          PENDING PILOT
-                                 covering 5 diverse layout strata.                 data is recorded.                                    EXECUTION
---------------------------------------------------------------------------------------------------------------------------------------------------
-DEC-09 Reference List Handling   Bibliographies parsed to metadata only;           Prevents artificial lexical   None (chunk exclusion  PROVISIONAL —
-                                 excluded from searchable retrieval chunks.        matching against cited titles locked).               PENDING RESEARCHER
-                                                                                   instead of evidence.                                 SIGN-OFF
---------------------------------------------------------------------------------------------------------------------------------------------------
-DEC-10 Screening & Calibration   Single reviewer + 10% stratified calibration      Transparently states staffing Awaiting primary       PROVISIONAL —
-                                 sample re-screened after 14-day masked washout.   limits while quantifying      screening execution.   PENDING RESEARCHER
-                                 Intra-rater kappa reported.                       intra-rater stability.                               SIGN-OFF
-==================================================================================================================================================
-```
+## 3. Researcher Protocol Sign-Off Matrix
+
+Researcher decisions recorded on 2026-10-21. Policy/selection procedures are approved as noted; values intentionally assigned to later pilot/development stages remain open. DEC-05 is not fully closed.
+
+| Decision | Approved policy/procedure | What remains open | Status |
+|---|---|---|---|
+| DEC-01 | Core search window is 2024-01-01 through search execution date; earlier works only via approved citation chaining. | Search execution date is recorded when the authorized search runs. | Approved 2026-10-21 |
+| DEC-02 | At least two core primary citing papers with distinct first authors; no candidate-author overlap with either citing paper; review citations excluded. | Candidate yield is unknown until search. This does not prove independent research groups. | Approved 2026-10-21 |
+| DEC-03 | Formal VoR issue year takes precedence; otherwise verified online VoR date; repository deposit date never substitutes for publication year. | Record discrepancies and year_source in metadata. | Approved 2026-10-21 |
+| DEC-04 | Use OpenAlex, Crossref, Semantic Scholar and lawful OA repositories; log queries/parameters; make no exhaustiveness claim; deterministic client-side sort is fallback. | API pagination, overlap and server-side sorting require pilot verification. | Procedure approved 2026-10-21; pilot verification pending |
+| DEC-05 | Four query families and ten known-item candidates approved in principle. Known-item sensitivity is a metadata-discovery sanity check, not total corpus recall. | Current list has six topical labels versus five declared subdomains. KI-01 and KI-08 full texts are not confirmed as lawful OA corpus inputs. Resolve mapping and separate metadata discovery from full-text eligibility. | Partially approved; open blocker |
+| DEC-06 | I_primary contains eligible primary journal articles and peer-reviewed conference papers; I_all adds eligible reviews/systematic reviews; retractions/corrections excluded from chunks. | Index construction follows corpus freeze. | Approved 2026-10-21 |
+| DEC-07 | Text-first extraction retains text, captions, structured tables and available LaTeX/MathML; no raw image pixels in searchable chunks; log OCR/extraction provenance. | Quality thresholds are handled under DEC-08. | Approved 2026-10-21 |
+| DEC-08 | Set CER/WER thresholds from the stratified 20-paper calibration pilot; report observed distributions and decision rationale. | Numeric thresholds remain pilot-dependent. | Procedure approved 2026-10-21; values pending pilot |
+| DEC-09 | Parse bibliographies to structured metadata only; exclude reference-list text from searchable chunks. | No policy item open. | Approved 2026-10-21 |
+| DEC-10 | Single reviewer; 10% masked re-screen after 14 days reported as intra-rater temporal consistency only. | Calibration results pending execution. | Approved 2026-10-21 |
+| DEC-11 | Choose dense model, chunking and fusion through the predefined development procedure; freeze before confirmatory evaluation; keep arms matched. | Actual model and parameter values remain pending development. | Selection procedure approved 2026-10-21 |
+| DEC-12 | Choose one accessible generator through the predefined feasibility/development procedure; freeze version, prompt, decoding and context budget before confirmatory evaluation. | Actual model/configuration remains pending development. | Selection procedure approved 2026-10-21 |
+| DEC-13 | Set benchmark size and category mix after corpus freeze using taxonomy, gold-evidence feasibility and prospective precision/power justification. | Final question count and category mix remain pending corpus freeze. | Selection procedure approved 2026-10-21 |
+
+**Hypothesis framing:** H1 remains directional at retrieval level; downstream answer-quality and general evidence-attribution comparisons remain cautious; H4 is exploratory and non-directional. Approved 2026-10-21.
 
 ---
 
