@@ -66,7 +66,7 @@ Researcher decisions recorded on 2026-10-21:
 - **DEC-05:** Ten known-item candidates approved in principle subject to final bibliographic and eligibility checks.
 
 Remaining decisions and gates:
-1. DEC-01, DEC-03, DEC-04, DEC-06, DEC-07, DEC-09, DEC-10, DEC-11, DEC-12, and DEC-13 remain open in the master protocol closure register.
+1. DEC-01, DEC-03, DEC-04, DEC-06, DEC-07, DEC-08 (threshold-setting procedure), DEC-09, DEC-10, DEC-11, DEC-12, and DEC-13 remain open in the master protocol closure register.
 2. DEC-05 candidate eligibility must be finalized; full-text lawful access is separate from metadata discoverability. Failed candidates must be flagged for replacement review.
 3. DEC-08 extraction thresholds remain open until the 20-paper calibration pilot is authorized and completed.
 4. Production embedding model, chunking parameters, context budget, and generator model remain unresolved.
