@@ -15,9 +15,14 @@ Each candidate or corpus record must include the following fields when available
 - `search_date`: UTC date or timestamp of the retrieval action.
 - `title`: title as recorded in source metadata.
 - `doi`: normalized DOI string where available.
-- `publication_year`: integer publication year when available.
+- `publication_year`: canonical integer publication year derived by deterministic precedence.
+- `formal_publication_year`: integer year of formal Version of Record (VoR) journal volume/issue.
+- `online_publication_date`: ISO-8601 date string (YYYY-MM-DD) when online-first VoR was published.
+- `acceptance_date`: ISO-8601 date string (YYYY-MM-DD) when peer-reviewed manuscript was accepted.
+- `repository_deposit_date`: ISO-8601 date string (YYYY-MM-DD) of repository upload (never substitutes for publication year).
+- `year_source`: evidence source for publication year determination (e.g. crossref_vor_issue, publisher_vor_online, accepted_manuscript_header, manual_audit).
 - `authors`: list of author names when available.
-- `document_type`: controlled values: journal_article, conference_paper, review, systematic_review, correction, retraction_notice, report.
+- `document_type`: controlled values: journal_article (eligible for I_primary and I_all), conference_paper (eligible for I_primary and I_all), review (eligible for I_all only), systematic_review (eligible for I_all only), correction (metadata-only, ineligible for retrieval), retraction_notice (metadata-only, ineligible for retrieval), report (excluded grey literature).
 - `peer_review_status`: not_checked, peer_reviewed, not_peer_reviewed, unclear.
 - `full_text_status`: not_checked, not_found, open_access, subscriber_only, partial_text, extracted, not_applicable.
 - `license_status`: not_recorded, cc_by, cc_by_sa, other, rights_unclear, no_license_info.

@@ -1,8 +1,8 @@
 # Phase 8.2 — Final Corpus Protocol Consistency and Sign-Off Gate
 
 **Project:** Solar Scientific RAG Literature Review  
-**Date:** 2026-10-10  
-**Phase:** Phase 8.2 — Protocol Consistency Audit & Formal Sign-Off Gate  
+**Date:** 2026-10-21  
+**Phase:** Phase 8.2 — Final Protocol Consistency & Sign-Off Gate  
 **Status:** PROTOCOL FINALIZATION COMPLETE — REAL-PAPER DISCOVERY & PILOT SEARCHES BLOCKED PENDING RESEARCHER SIGN-OFF  
 
 ---
@@ -13,220 +13,265 @@
 
 ---
 
-## 1. Objective and Scope
+## 1. Executive Summary & Purpose
 
-This document provides the definitive, ambiguity-free methodological specification for the Solar-PV Scientific Literature Corpus Protocol. It resolves all remaining documentation questions regarding:
-1. Citation chaining and disjoint authorship definitions for pre-2024 literature.
-2. Pilot-search accounting ($N_{\text{slots}}$, $N_{\text{raw}}$, $N_{\text{unique}}$, $N_{\text{duplicate}}$, $N_{\text{eligible}}$) and predefined known-item benchmark papers.
-3. Publication date precedence hierarchy and safeguards against deposit date substitution.
-4. Strict document-type boundaries for the Primary Index ($I_{\text{primary}}$) versus Sensitivity Index ($I_{\text{all}}$).
-5. Comprehensive consistency alignment across protocol documents.
-6. A formal, itemized Researcher Sign-Off Matrix.
+This document provides the definitive, audit-ready methodological specification for the Solar-PV Scientific Literature Corpus Protocol. It resolves all remaining documentation ambiguities, establishes precise mathematical and operational definitions, and compiles the formal Researcher Protocol Sign-Off Matrix.
 
-**Strict Gate Notice:** No real papers have been searched, scraped, or ingested. Software readiness is verified; scientific corpus readiness remains **BLOCKED**.
+### Key Protocol Invariants:
+1. **Frozen Research Question:** The three-arm comparison (BM25 vs. Dense vs. Hybrid RRF) under shared controls remains strictly preserved.
+2. **Strict Operational Boundaries:** No real papers have been searched, scraped, or downloaded. No live API pilots or extraction pilots have been executed.
+3. **Sign-Off Authority:** All policies are presented with their current status, rationale, remaining uncertainties, and approval levels. **No decision is marked as approved on the researcher's behalf.**
 
 ---
 
-## 2. Technical and Methodological Specifications
+## 2. Detailed Technical & Methodological Specifications
 
-### 2.1 Citation Chaining Operationalization (DEC-02)
+### 2.1 Task 1: Citation Chaining & Pre-2024 Foundational Inclusion (DEC-02)
 
-#### 2.1.1 Disjoint Authorship Definition
-To prevent author self-citation clusters from qualifying older papers while avoiding the exclusion of legitimate foundational studies in collaborative subfields, the concept of **disjoint authorship** is formally operationalized as follows:
+#### 2.1.1 Precise Definition of Disjoint Authorship
+To prevent author self-citation loops from qualifying older papers while avoiding the exclusion of legitimate foundational studies in collaborative subfields, the concept of **disjoint authorship** is defined at two structural tiers:
 
-1. **Lead Leadership Separation (Mandatory):**
+1. **Lead Leadership Separation (Mandatory Strict Disjointness):**
    $$\{FirstAuthor(P_1), CorrespAuthor(P_1)\} \cap \{FirstAuthor(P_2), CorrespAuthor(P_2)\} = \emptyset$$
-   The primary leadership (first author and corresponding author) of Citing Core Paper 1 ($P_1$) and Citing Core Paper 2 ($P_2$) must be completely disjoint.
-2. **Candidate Independence / No Self-Citation (Mandatory):**
+   The primary intellectual leadership (first author and corresponding/senior author) of Citing Core Paper 1 ($P_1$) and Citing Core Paper 2 ($P_2$) must be completely disjoint.
+2. **Candidate Independence / Anti-Self-Citation (Mandatory):**
    $$\{Authors(Candidate)\} \cap \{FirstAuthor(P_1), CorrespAuthor(P_1), FirstAuthor(P_2), CorrespAuthor(P_2)\} = \emptyset$$
-   Neither citing paper may be lead-authored or correspond-authored by any author of the pre-2024 candidate paper.
-3. **Middle-Author Overlap Ceiling:**
-   In specialized subfields or large international testing consortia (e.g. NREL/Fraunhofer measurement groups), middle co-authors frequently overlap. To balance independence with real-world scientific collaboration:
-   - Middle co-authors may overlap only if the overlapping authors constitute $<50\%$ of the author list of both citing papers.
-   - If middle-author overlap $\ge 50\%$, the two papers are considered a single collaborative cluster and count as only **1 citing credit**.
+   No author of the pre-2024 candidate paper may serve as first author or corresponding author of either citing core paper.
+3. **Middle-Author Overlap Ceiling (Collaborative Balance):**
+   In photovoltaic research, large multi-institutional consortia (e.g., NREL, Fraunhofer ISE, AIST) often feature recurring technical contributors across multiple papers.
+   - Middle co-authors may overlap between $P_1$ and $P_2$ **only if** the overlapping authors constitute $<50\%$ of the total author list of both $P_1$ and $P_2$.
+   - If middle-author overlap $\ge 50\%$, $P_1$ and $P_2$ are classified as a single collaborative research cluster and contribute only **1 citing credit** toward the threshold.
 4. **Distinction from "Completely Disjoint Author Lists":**
-   Requiring 100% disjoint author lists across large author teams (e.g. 15-author consortia with a shared institutional facility director) introduces severe false-negative risks, inappropriately excluding landmark foundational studies (e.g., Green efficiency tables, Jordan degradation rate syntheses). The primary leadership separation plus middle-author ceiling eliminates self-citation bias while preserving legitimate domain consensus.
+   Requiring 100% disjoint author lists across all middle co-authors would introduce severe false-negative bias by disqualifying landmark foundational studies (e.g., Green et al. solar efficiency tables, Jordan & Kurtz PV degradation surveys) simply because a shared institutional co-author appears on two recent 2024 papers. The combination of lead-author disjointness and the $<50\%$ middle-author ceiling eliminates self-citation bias while accommodating legitimate multi-institutional scholarship.
 
-#### 2.1.2 Threshold Preservation
-The threshold of **$\ge 2$ independent citing primary research papers** (2024–2026 core) is preserved without modification. Citing mentions in review articles (`document_type="review"`) do **not** count toward this threshold.
+#### 2.1.2 Citing Document Type Restrictions (Review Exclusion)
+- **Primary Research Only:** Only primary peer-reviewed research papers (`document_type in {"journal_article", "conference_paper"}`) qualify as citing core papers.
+- **Review Citations Excluded:** Citations appearing in review articles (`document_type in {"review", "systematic_review"}`) do **not** count toward the $\ge 2$ threshold. Reviews cite hundreds of background papers; allowing review citations to qualify earlier papers would flood the candidate pool with generic historical citations.
 
-#### 2.1.3 Missing Metadata & Audit Trail
-- If API citation metadata or author lists are truncated or missing (e.g., "et al."), manual full-text PDF inspection of the citing papers is required and logged.
-- If author disambiguation remains unverifiable, the citation cannot count toward the threshold.
-- Every pre-2024 paper accepted via this rule must be logged in `citation_chaining_audit.jsonl` with:
-  `candidate_doi`, `citing_dois`, `author_overlap_percentage`, `verification_timestamp_utc`, and `auditor_id`.
+#### 2.1.3 Assessment of the Two-Independent-Citing-Paper Threshold
+- **Threshold Analysis:**
+  - *Threshold = 1:* High risk of idiosyncratic bias or single-lab niche references entering the corpus.
+  - *Threshold $\ge 3$:* High risk of historical amnesia; foundational concepts established decades ago are often treated as common knowledge or cited sparingly in recent experimental papers.
+  - *Threshold = 2 (Selected Standard):* Strikes the optimal balance between peer-validated relevance in current (2024–2026) literature and protection against single-group gaming.
+- **Threshold Preservation:** The threshold of **$\ge 2$ independent citing primary research papers** is preserved without modification. Any proposed change must be separately documented and submitted for formal approval.
+
+#### 2.1.4 Handling Missing Author or Citation Metadata
+- If API metadata (OpenAlex, Crossref, Semantic Scholar) is incomplete, truncated, or reports "et al.", automated citation credit is withheld.
+- Mandatory manual inspection of the citing paper's full-text PDF is required to verify the complete author list and confirm that the citation appears contextually in the Introduction, Theory, or Methods section.
+- If author disambiguation remains unverifiable after manual audit, the citation cannot count toward the threshold.
+
+#### 2.1.5 Audit Trail and Recording
+Every chained pre-2024 candidate accepted into the screening queue is logged in an immutable `citation_chaining_audit.jsonl` record with:
+```json
+{
+  "candidate_doi": "10.1016/j.solmat.2020.100000",
+  "candidate_title": "Foundational Degradation Modeling in Silicon Modules",
+  "citing_core_records": ["doc-core-014", "doc-core-092"],
+  "citing_dois": ["10.1016/j.solmat.2024.112001", "10.1109/JPHOTOV.2024.335002"],
+  "citing_document_types": ["journal_article", "journal_article"],
+  "lead_author_disjoint": true,
+  "middle_author_overlap_ratio": 0.12,
+  "candidate_author_in_citing_leads": false,
+  "contextual_section_verified": "Introduction / Methodology",
+  "foundational_earlier_tag": true,
+  "auditor_id": "operator_id",
+  "timestamp_utc": "2026-10-21T17:00:00Z"
+}
+```
 
 ---
 
-### 2.2 Pilot-Search Accounting and Predefined Known-Item Benchmark (DEC-04 / DEC-05)
+### 2.2 Task 2: Pilot-Search Accounting & Predefined Known-Item Benchmark (DEC-04 / DEC-05)
 
 #### 2.2.1 Distinct Search Metric Accounting
-The pre-ingestion pilot search must strictly distinguish between the following five counts to avoid misleading volume claims:
+To prevent conflation between search capacity, gross downloads, and actual unique scientific literature, the pilot search enforces five strictly separated metrics:
 
 ```
-+-----------------------------------------------------------------------------------------+
-|                                SEARCH COUNT DEFINITIONS                                 |
-+-----------------------------------------------------------------------------------------+
-| 1. Raw Retrieval Slots (N_slots):                                                       |
-|    Total theoretical query capacity (4 query families x 3 sources x 25 rank positions   |
-|    = 300 slots).                                                                        |
-|                                                                                         |
-| 2. Raw Source Records (N_raw):                                                          |
-|    Total bibliographic records returned across API calls (<= N_slots).                  |
-|                                                                                         |
-| 3. Unique Candidate Papers (N_unique):                                                  |
-|    Distinct scholarly works remaining after de-duplication across sources via           |
-|    normalized DOI and canonical title/year identities.                                  |
-|                                                                                         |
-| 4. Duplicate Records (N_duplicate):                                                     |
-|    Redundant cross-source or multi-query records: N_duplicate = N_raw - N_unique.       |
-|                                                                                         |
-| 5. Eligible Papers (N_eligible):                                                        |
-|    Unique candidates meeting all screening criteria and having lawful full text.        |
-+-----------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------+
+|                                     SEARCH METRIC ACCOUNTING                                      |
++---------------------------------------------------------------------------------------------------+
+| 1. Raw Retrieval Slots (N_slots):                                                                 |
+|    Total theoretical capacity planned: 4 query families x 3 sources x 25 rank positions = 300.   |
+|                                                                                                   |
+| 2. Raw Source Records (N_raw):                                                                    |
+|    Total gross bibliographic entries returned by APIs across all queries (<= N_slots).            |
+|                                                                                                   |
+| 3. Unique Candidate Papers (N_unique):                                                            |
+|    Distinct scholarly works remaining after cross-source de-duplication by normalized DOI and     |
+|    canonical title/year hash.                                                                     |
+|                                                                                                   |
+| 4. Duplicate Records (N_duplicate_records):                                                       |
+|    Redundant bibliographic instances across sources: N_duplicate_records = N_raw - N_unique.      |
+|                                                                                                   |
+| 5. Duplicate Candidate Groups (N_duplicate_candidates):                                           |
+|    Clusters of candidate records flagged for manual review due to title or DOI collision.         |
+|                                                                                                   |
+| 6. Eligible Papers (N_eligible):                                                                  |
+|    Unique candidates meeting all inclusion criteria and verified lawful full-text access.         |
++---------------------------------------------------------------------------------------------------+
 ```
 
-#### 2.2.2 Deterministic Query Execution & Ordering
-To guarantee exact reproducibility across runs:
-- **OpenAlex API:** Explicit parameter string `sort=publication_date:desc,id:asc`, `per-page=25`, `page=1`, with API endpoint version recorded.
-- **Crossref API:** Explicit parameter string `rows=25&offset=0&sort=published&order=desc`, polite header (`mailto`), and timestamp logged.
-- **Semantic Scholar API:** Explicit parameter string `limit=25&offset=0&fields=title,authors,year,doi,abstract,venue,isOpenAccess,openAccessPdf`.
-- Raw API JSON responses and their SHA-256 hashes must be preserved in `pilot_search_raw/`.
+#### 2.2.2 Reproducible Query Execution & Deterministic Ordering
+API queries must use deterministic parameters and log raw responses:
+- **OpenAlex API:** Pinned parameters `sort=publication_date:desc,id:asc`, `per-page=25`, `page=1`. API endpoint version logged.
+- **Crossref API:** Pinned parameters `rows=25&offset=0&sort=published&order=desc`, polite header (`mailto`), and timestamp logged.
+- **Semantic Scholar API:** Pinned parameters `limit=25&offset=0&fields=title,authors,year,doi,abstract,venue,isOpenAccess,openAccessPdf`.
+- Raw API JSON responses and their SHA-256 hashes must be preserved in `pilot_search_raw/`. No claims of complete database coverage are permitted.
 
-#### 2.2.3 Predefined 10 Known-Item Landmark Papers
-The 10 landmark known-item benchmark papers are specified *prior* to pilot search execution to test query sensitivity without post-hoc selection:
+#### 2.2.3 Predefined 10 Known-Item Landmark Benchmark Papers
 
-| Item ID | Topic Subdomain | Target Work & Landmark Scope | Representative Publication Venue | Publication Window |
-|---|---|---|---|---|
-| **KI-01** | Perovskite-Silicon Tandem | 2-terminal tandem efficiency limits and operational stability | *Nature Energy* / *Science* | 2024 |
-| **KI-02** | TOPCon Silicon Cells | Contact passivation and metallization degradation kinetics | *Solar Energy Materials & Solar Cells* | 2024 |
-| **KI-03** | Silicon Heterojunction (HJT) | Damp heat stability and light/elevated temperature degradation | *Progress in Photovoltaics* | 2024 |
-| **KI-04** | Bifacial PV Modules | Rear-side irradiance modeling and albedo sensitivity | *IEEE Journal of Photovoltaics* | 2024 |
-| **KI-05** | Perovskite Degradation | Accelerated aging protocols (ISOS) and moisture encapsulation | *ACS Energy Letters* | 2024 |
-| **KI-06** | Inverter & System Reliability | Power electronic thermal stress and IGBT failure modes | *Solar Energy* | 2024 |
-| **KI-07** | PV Output Forecasting | Physical & ML hybrid solar irradiance prediction models | *Applied Energy* | 2024 |
-| **KI-08** | Potential-Induced Degradation | PID-polarization and PID-shunting in high-voltage strings | *Progress in Photovoltaics* | 2024 |
-| **KI-09** | Organic PV (OPV) | Non-fullerene acceptor degradation and indoor PV performance | *Advanced Energy Materials* | 2024 |
-| **KI-10** | Techno-Economic / LCA | Lifetime greenhouse gas footprint and LCOE for utility-scale PV | *Renewable and Sustainable Energy Reviews* | 2024 |
+> [!WARNING]
+> **CRITICAL BLOCKER 1 (Uninstantiated Known-Item Benchmark):** Table 2.2.3 currently defines target technological scopes and representative journal venues, but lacks specific, resolved paper titles and DOIs. To ensure an executable benchmark test set and prevent post-hoc cherry-picking, the researcher must nominate and freeze 10 specific peer-reviewed 2024 papers with verified DOIs before the 300-slot pilot search is executed.
 
-#### 2.2.4 Known-Item Sensitivity Calculation
-$$\text{Sensitivity}_{\text{known-item}} = \left( \frac{\text{Count of Predefined Known Items in Candidate Set}}{10} \right) \times 100\%$$
-Reported overall and broken down by source (OpenAlex, Crossref, Semantic Scholar). No claims of complete domain coverage may be made.
+| Item ID | Topic Subdomain | Target Scope & Technical Focus | Representative Publication Venue | Publication Window | Verified DOI / Status |
+|---|---|---|---|---|---|
+| **KI-01** | Perovskite-Silicon Tandem | 2-terminal tandem efficiency limits and operational stability | *Nature Energy* / *Science* | 2024 | *Awaiting Researcher Nomination* |
+| **KI-02** | TOPCon Silicon Cells | Contact passivation and metallization degradation kinetics | *Solar Energy Materials & Solar Cells* | 2024 | *Awaiting Researcher Nomination* |
+| **KI-03** | Silicon Heterojunction (HJT) | Damp heat stability and light/elevated temperature degradation | *Progress in Photovoltaics* | 2024 | *Awaiting Researcher Nomination* |
+| **KI-04** | Bifacial PV Modules | Rear-side irradiance modeling and albedo sensitivity | *IEEE Journal of Photovoltaics* | 2024 | *Awaiting Researcher Nomination* |
+| **KI-05** | Perovskite Degradation | Accelerated aging protocols (ISOS) and moisture encapsulation | *ACS Energy Letters* | 2024 | *Awaiting Researcher Nomination* |
+| **KI-06** | Inverter & System Reliability | Power electronic thermal stress and IGBT failure modes | *Solar Energy* | 2024 | *Awaiting Researcher Nomination* |
+| **KI-07** | PV Output Forecasting | Physical & ML hybrid solar irradiance prediction models | *Applied Energy* | 2024 | *Awaiting Researcher Nomination* |
+| **KI-08** | Potential-Induced Degradation | PID-polarization and PID-shunting in high-voltage strings | *Progress in Photovoltaics* | 2024 | *Awaiting Researcher Nomination* |
+| **KI-09** | Organic PV (OPV) | Non-fullerene acceptor degradation and indoor PV performance | *Advanced Energy Materials* | 2024 | *Awaiting Researcher Nomination* |
+| **KI-10** | Techno-Economic / LCA | Lifetime greenhouse gas footprint and LCOE for utility-scale PV | *Renewable and Sustainable Energy Reviews* | 2024 | *Awaiting Researcher Nomination* |
+
+#### 2.2.4 Known-Item Retrieval Sensitivity Calculation
+$$\text{Sensitivity}_{\text{known-item}} = \left( \frac{\text{Count of Predefined Known Items in } N_{\text{unique}}}{10} \right) \times 100\%$$
+Sensitivity is reported overall and per source (OpenAlex, Crossref, Semantic Scholar).  
+*Methodological Notice:* This metric evaluates whether the discovery queries successfully locate known landmark literature (a query sensitivity sanity check); it does not constitute a statistical estimate of total domain recall because the true unretrieved relevant literature population is unknown.
 
 ---
 
-### 2.3 Publication Date Precedence Hierarchy (DEC-03)
+### 2.3 Task 3: Publication Date Precedence & Conflict Handling (DEC-03)
 
 #### 2.3.1 Date Category Definitions
-1. **Formal Publication Year ($Y_{\text{formal}}$):** The official calendar year assigned to the final journal volume/issue in the publisher's Version of Record (VoR).
-2. **Online-First Publication Year ($Y_{\text{online}}$):** The calendar year when the peer-reviewed, copyedited VoR was first posted online with a DOI before volume/issue assignment.
-3. **Accepted Manuscript Year ($Y_{\text{accepted}}$):** The date the peer-reviewed manuscript was accepted by the journal before publisher layout/VoR formatting.
-4. **Repository Deposit Year ($Y_{\text{deposit}}$):** The date a file was uploaded to an institutional repository, arXiv, or Zenodo.
+1. **Formal Publication Year ($Y_{\text{formal}}$):** The official calendar year assigned to the journal volume/issue in the publisher's Version of Record (VoR).
+2. **Online-First Publication Year ($Y_{\text{online}}$):** The calendar year when the copyedited, DOI-bearing VoR was posted online prior to issue assignment.
+3. **Accepted Manuscript Year ($Y_{\text{accepted}}$):** The date the peer-reviewed manuscript was formally accepted by the editorial board.
+4. **Preprint Year ($Y_{\text{preprint}}$):** The date an unreviewed manuscript was posted to arXiv, SSRN, or ResearchSquare.
+5. **Repository Deposit Year ($Y_{\text{deposit}}$):** The date an electronic file was uploaded to an institutional repository or open archive.
 
 #### 2.3.2 Strict Rule Against Deposit Date Substitution
-> **RULE:** A repository deposit date must **NEVER** be substituted for a publication date.  
-> *Rationale:* A paper published in 2018 but deposited into an institutional repository in 2024 remains a 2018 paper. Using deposit dates would introduce severe temporal inflation and contaminate the 2024–2026 core window with historical literature.
+> **MANDATORY PROTOCOL RULE:** A repository deposit date must **NEVER** be substituted for a publication date.  
+> *Methodological Rationale:* A landmark paper published in 2015 that is uploaded to an institutional repository in 2024 remains a 2015 paper. Allowing deposit dates to override publication dates would artificially contaminate the 2024–2026 contemporary window with historical literature.
 
-#### 2.3.3 Precedence Resolution Hierarchy
-1. **Priority 1 ($Y_{\text{formal}}$):** Formal VoR volume/issue year governs `publication_year`.
-2. **Priority 2 ($Y_{\text{online}}$):** If volume/issue has not yet been assigned, the online-first VoR year governs.
-3. **Priority 3 ($Y_{\text{accepted}}$):** Used only where VoR is absent and a lawful accepted manuscript is the canonical version.
-4. **Preprints:** Unreviewed preprints are excluded under Phase 3 Section 4.2; deposit dates do not qualify preprints as published works.
-5. **Conflict & Missing Date Handling:** All dates are preserved in metadata (`formal_date`, `online_date`, `deposit_date`). Discrepancies $>1$ year are flagged in `date_exceptions.log`. Missing dates must remain `publication_year = None`; fabricating dates is prohibited.
+#### 2.3.3 Deterministic Date Precedence Hierarchy
+When dates conflict across discovery sources:
+1. **Priority 1 ($Y_{\text{formal}}$):** Formal VoR volume/issue year strictly governs `publication_year`.
+2. **Priority 2 ($Y_{\text{online}}$):** If volume/issue has not yet been assigned by the publisher, the online-first VoR year governs.
+3. **Priority 3 ($Y_{\text{accepted}}$):** Used only where VoR is paywalled/absent and an authorized accepted manuscript serves as canonical text.
+4. **Preprints:** Excluded from the primary corpus under Phase 3 Section 4.2.
+5. **Conflict & Missing Date Handling:** All dates are preserved in metadata (`formal_date`, `online_date`, `deposit_date`). Discrepancies $>1$ year are flagged in `date_exceptions.log`. If a publication date cannot be verified from publisher VoR, `publication_year = None`, queued for manual audit, and never fabricated.
 
 ---
 
-### 2.4 Primary ($I_{\text{primary}}$) and Sensitivity ($I_{\text{all}}$) Corpus Boundaries (DEC-06)
+### 2.4 Task 4: Primary ($I_{\text{primary}}$) and Sensitivity ($I_{\text{all}}$) Corpora (DEC-06)
 
 #### 2.4.1 Document Type Allocation
-- **Primary Index ($I_{\text{primary}}$):**
-  - **Eligible Types:** `journal_article`, `conference_paper` (primary peer-reviewed research papers only).
-  - **Ineligible Types:** `review`, `systematic_review`, `report`, `preprint`.
-  - **Governing Role:** Evaluates the frozen confirmatory research question (*BM25 vs. Dense vs. Hybrid*).
-- **Sensitivity Index ($I_{\text{all}}$):**
-  - **Eligible Types:** `journal_article`, `conference_paper`, `review`, `systematic_review`.
-  - **Governing Role:** Evaluates the secondary exploratory question: *Does the inclusion of review articles alter the relative performance gap or ranking of the three retrieval strategies?*
+```
++---------------------------------------------------------------------------------------------------+
+|                                CORPUS DOCUMENT TYPE ALLOCATION                                    |
++---------------------------------------------------------------------------------------------------+
+| Primary Retrieval Index (I_primary):                                                              |
+|   - Eligible: journal_article, conference_paper (primary peer-reviewed research papers only)       |
+|   - Ineligible: review, systematic_review, report, preprint, book_chapter, thesis                  |
+|   - Governing Role: Evaluates frozen confirmatory RQ (BM25 vs. Dense vs. Hybrid).                 |
+|                                                                                                   |
+| Secondary / Sensitivity Index (I_all):                                                            |
+|   - Eligible: journal_article, conference_paper, review, systematic_review                         |
+|   - Ineligible: report, preprint, book_chapter, thesis                                             |
+|   - Governing Role: Evaluates sensitivity of retrieval strategy rankings to review literature.    |
++---------------------------------------------------------------------------------------------------+
+```
 
-#### 2.4.2 Methodological Interpretation of Sensitivity Analysis
-Because $|I_{\text{all}}| > |I_{\text{primary}}|$, differences in corpus size and evidence density introduce known statistical effects:
-- **BM25 Impact:** Review articles increase document frequencies ($df$) of domain terminology, altering inverse document frequency (IDF) weights, while review passages contain high keyword density that may favor broad lexical matching.
-- **Dense Impact:** Review passages produce embedding vectors situated near broad conceptual centroids, altering k-NN cosine rankings.
+#### 2.4.2 Invariant Shared Experimental Controls
+To prevent confounding retrieval strategy with experimental artifacts:
+- The question benchmark (Phase 4), ground-truth claim rubrics, generation prompts, generator model, and evaluation metrics remain **strictly identical** across $I_{\text{primary}}$ and $I_{\text{all}}$ evaluations.
+
+#### 2.4.3 Methodological Interpretation of Corpus Differences
+Because $|I_{\text{all}}| > |I_{\text{primary}}|$, differences in corpus size and evidence density introduce known statistical effects that must be explicitly analyzed:
+- **BM25 Impact:** Review articles inflate document frequencies ($df$) across broad domain terms, compressing inverse document frequency (IDF) weights. Furthermore, review passages contain dense keyword summaries that may artificially elevate BM25 lexical matching over primary empirical passages.
+- **Dense Retriever Impact:** Review passages synthesize multiple subtopics, generating embedding vectors located near broad conceptual centroids. This increases semantic collision risks and may crowd out fine-grained empirical passages.
 - **Hybrid (RRF) Impact:** Reciprocal rank fusion reflects whether BM25 and dense agree on review passages versus primary papers.
-- **Experimental Invariant:** Benchmark questions, ground-truth claim rubrics, generation prompts, and evaluation metrics must remain **strictly identical** across $I_{\text{primary}}$ and $I_{\text{all}}$ evaluations.
+- **Interpretation Rule:** If hybrid retrieval outperforms dense on $I_{\text{primary}}$ but dense outperforms hybrid on $I_{\text{all}}$, this indicates that review-article presence confounds evidence localization. The primary conclusion regarding the frozen research question must rest on $I_{\text{primary}}$.
 
 ---
 
-### 2.5 Extraction Calibration Protocol (DEC-08)
+### 2.5 Task 5: Comprehensive Cross-Document Consistency Audit
 
-- **20-PDF Calibration Stratum:**
-  - 5 standard 2-column peer-reviewed research papers.
-  - 5 heavy mathematical/physics papers (dense LaTeX formulas).
-  - 5 data-dense experimental papers with nested tables.
-  - 3 conference proceedings papers with graphic figures.
-  - 2 legacy/scanned PDFs requiring OCR.
-- **Measurement Matrix:** Reading order reflow, table structure accuracy, formula syntax preservation (LaTeX/MathML), figure caption extraction completeness, and Character Error Rate (CER).
-- **Threshold Status:** Numerical cutoffs for `successful`, `partial`, and `failed` remain **OPEN** until pilot empirical distributions are recorded.
+A systematic comparison across all project governance documents was conducted:
 
----
-
-### 2.6 Single-Reviewer Screening Transparency (DEC-10)
-
-- **Honest Limitation:** Inter-rater reliability (dual-reviewer Cohen's kappa) cannot be claimed without independent raters.
-- **Intra-Rater Calibration Protocol:** A 10% stratified random sample is re-screened under masked conditions after a **14-day temporal washout period**.
-- **Metrics:** Intra-rater percentage agreement and intra-rater Cohen's kappa ($\kappa_{\text{intra}}$) are recorded in study reporting.
-
----
-
-## 3. Comprehensive Protocol Consistency Audit
-
-| Protocol Document | Cross-Checked Area | Finding & Reconciliation | Status |
+| Governance Document | Cross-Checked Element | Consistency Finding | Resolution / Current Status |
 |---|---|---|---|
-| [`notes/methodology/phase8_protocol_decision_register.md`](./phase8_protocol_decision_register.md) | DEC-01 through DEC-10 | Fully aligned with Phase 8.1 and 8.2 specifications. | **CONSISTENT** |
+| [`notes/methodology/phase8_protocol_decision_register.md`](./phase8_protocol_decision_register.md) | DEC-01 through DEC-10 | Fully aligned with Phase 8.1 and 8.2 operational definitions. | **CONSISTENT** |
 | [`notes/methodology/corpus_acquisition_workflow.md`](./corpus_acquisition_workflow.md) | Query Families & Date Rules | Section 20 links directly to decision register; date precedence aligned. | **CONSISTENT** |
-| [`notes/methodology/corpus_data_dictionary.md`](./corpus_data_dictionary.md) | `document_type` controlled enums | Updated line 20 to snake_case controlled vocabulary (`journal_article`, `conference_paper`, `review`, `systematic_review`). | **CONSISTENT** |
-| [`notes/methodology/corpus_quality_control.md`](./corpus_quality_control.md) | Retraction triggers & QC sampling | Review triggers strictly include `corrected` and `review_required`. | **CONSISTENT** |
-| [`notes/research-gaps/phase3_corpus_design_protocol.md`](../research-gaps/phase3_corpus_design_protocol.md) | Document type & preprint exclusions | Primary corpus excludes preprints without VoR; matches Phase 8.2 boundaries. | **CONSISTENT** |
-| [`SCREENING_PROTOCOL.md`](../../SCREENING_PROTOCOL.md) | RAG Literature Review vs Corpus Screening | Clarified: `SCREENING_PROTOCOL.md` governs methodological literature review (Phases 1–2); corpus workflow governs solar-PV literature (Phase 3 & 7/8). | **CONSISTENT** |
-| [`src/solar_rag/corpus_workflow.py`](../../src/solar_rag/corpus_workflow.py) | Python validation engine | Enforces all controlled enums; 69 tests pass cleanly. | **CONSISTENT** |
+| [`notes/methodology/corpus_data_dictionary.md`](./corpus_data_dictionary.md) | Controlled enums for `document_type` | Updated to snake_case enums (`journal_article`, `conference_paper`, `review`, `systematic_review`). | **CONSISTENT** |
+| [`notes/methodology/corpus_quality_control.md`](./corpus_quality_control.md) | Retraction triggers & QC sampling | Review triggers include `corrected` and `review_required`. | **CONSISTENT** |
+| [`notes/research-gaps/phase3_corpus_design_protocol.md`](../research-gaps/phase3_corpus_design_protocol.md) | Document types & preprint policy | Primary corpus excludes preprints without VoR; matches Phase 8.2 boundaries. | **CONSISTENT** |
+| [`SCREENING_PROTOCOL.md`](../../SCREENING_PROTOCOL.md) | Scope & Controlled Decisions | Clarified distinction: `SCREENING_PROTOCOL.md` governs methodological literature screening (Phases 1–2); corpus workflow governs solar-PV literature (Phase 3 & 7/8). | **CONSISTENT** |
+| [`src/solar_rag/corpus_workflow.py`](../../src/solar_rag/corpus_workflow.py) | Python validation engine | Enforces controlled vocabularies; all 69 unit tests pass cleanly. | **CONSISTENT** |
 
 ---
 
-## 4. Researcher Protocol Sign-Off Matrix
+## 3. Researcher Protocol Sign-Off Matrix
+
+The following matrix documents each protocol decision, its current policy, evidentiary rationale, remaining uncertainties, approval level required, and sign-off status. **Decisions are marked as PROVISIONAL — PENDING RESEARCHER SIGN-OFF or OPEN; none are marked approved on the researcher's behalf.**
 
 ```
-==========================================================================================================================================
+==================================================================================================================================================
 RESEARCHER PROTOCOL SIGN-OFF MATRIX
-==========================================================================================================================================
-ID     Topic                     Current Policy                                    Remaining Uncertainty              Ready for Sign-Off?
-------------------------------------------------------------------------------------------------------------------------------------------
-DEC-01 Core Publication Window   2024–2026 (inclusive) based on VoR year.          Exact upper-bound date at search.  READY FOR SIGN-OFF
-DEC-02 Pre-2024 Chaining         >=2 independent core citing papers; disjoint      Exact yield of chained candidates  READY FOR SIGN-OFF
-                                 lead authors; <50% middle author overlap.         prior to pilot run.
-DEC-03 Date Precedence           Formal VoR > Online-First > Accepted Manuscript.  None (precedence deterministic).   READY FOR SIGN-OFF
-                                 Deposit date substitution strictly prohibited.
-DEC-04 Discovery Source Mix      Multi-source (OpenAlex, Crossref, S2, OA).        Source overlap ratio (tested in    READY FOR SIGN-OFF
-                                 No single source claimed complete.                300-slot pilot).
-DEC-05 Query Registry            4 Query Families (Q1–Q4) with exact parameter     None (syntax templates locked).    READY FOR SIGN-OFF
-                                 logging and deterministic ordering.
-DEC-06 Review Stratification     I_primary: primary research articles only.        None (index boundary locked).      READY FOR SIGN-OFF
-                                 I_all: primary research + review articles.
-DEC-07 Artifact Preservation     Text-first: captions & structured tables;         None (scope locked to text-first). READY FOR SIGN-OFF
-                                 LaTeX/MathML formulas; image pixels excluded.
-DEC-08 Extraction Thresholds     Open threshold protocol; numerical cutoffs        Awaiting 20-PDF extraction pilot   OPEN (Awaiting
-                                 established from 20-paper empirical pilot.        measurements.                      Pilot Run)
-DEC-09 Reference List Handling   Bibliographies parsed to metadata only;           None (chunk exclusion locked).     READY FOR SIGN-OFF
-                                 excluded from searchable retrieval chunks.
-DEC-10 Screening & Calibration   Single reviewer + 10% stratified calibration      Awaiting primary screening run.    READY FOR SIGN-OFF
-                                 sample re-screened after 14-day washout.
-==========================================================================================================================================
+==================================================================================================================================================
+ID     Topic                     Current Policy                                    Rationale & Evidence          Remaining Uncertainty  Status
+--------------------------------------------------------------------------------------------------------------------------------------------------
+DEC-01 Core Publication Window   2024–2026 inclusive based on formal VoR year      Captures contemporary PV tech Exact upper-bound date PROVISIONAL —
+                                 (Crossref/publisher authoritative metadata).      while maintaining bounded     at search execution.   PENDING RESEARCHER
+                                                                                   discovery frame.                                     SIGN-OFF
+--------------------------------------------------------------------------------------------------------------------------------------------------
+DEC-02 Pre-2024 Chaining         >=2 independent core primary papers; lead         Prevents self-citation gaming Exact yield of chained PROVISIONAL —
+                                 authors disjoint; <50% middle author overlap.     without excluding landmark    candidates prior to    PENDING RESEARCHER
+                                 Review citations excluded.                        multi-institution studies.    search run.            SIGN-OFF
+--------------------------------------------------------------------------------------------------------------------------------------------------
+DEC-03 Date Precedence           Formal VoR > Online-First > Accepted Manuscript.  Prevents historical papers    None (precedence order PROVISIONAL —
+                                 Deposit date substitution strictly prohibited.    from masquerading as new via  deterministic).        PENDING RESEARCHER
+                                 Discrepancies >1 yr logged.                       recent repository uploads.                           SIGN-OFF
+--------------------------------------------------------------------------------------------------------------------------------------------------
+DEC-04 Discovery Source Mix      Multi-source: OpenAlex, Crossref, Semantic        Combines broad discovery with Cross-source overlap   PROVISIONAL —
+                                 Scholar, lawful OA repositories. No single        authoritative DOI metadata    ratio (tested in       PENDING RESEARCHER
+                                 source claimed complete.                          and open access resolution.   300-slot pilot).       SIGN-OFF
+--------------------------------------------------------------------------------------------------------------------------------------------------
+DEC-05 Query Registry            4 Query Families (Q1–Q4) with exact parameter     Ensures deterministic,        None (syntax templates PROVISIONAL —
+                                 logging and deterministic ordering.               reproducible search queries   locked).               PENDING RESEARCHER
+                                 10 predefined known-item benchmark papers.        grounded in PV subdomains.                           SIGN-OFF
+--------------------------------------------------------------------------------------------------------------------------------------------------
+DEC-06 Review Stratification     I_primary: primary research articles only.        Prevents review summaries     None (index boundary   PROVISIONAL —
+                                 I_all: primary research + review articles.        acting as artificial shortcut locked).               PENDING RESEARCHER
+                                 Identical benchmark/prompts across both.          confounds in primary RQ.                             SIGN-OFF
+--------------------------------------------------------------------------------------------------------------------------------------------------
+DEC-07 Artifact Preservation     Text-first: captions, structured tables, and      Preserves scientific meaning  None (scope locked to  PROVISIONAL —
+                                 LaTeX/MathML formulas; image pixels excluded.     without confounding retrieval text-first).           PENDING RESEARCHER
+                                 Supplementary text archived in metadata.          with vision capabilities.                            SIGN-OFF
+--------------------------------------------------------------------------------------------------------------------------------------------------
+DEC-08 Extraction Thresholds     Open threshold protocol; numerical cutoffs        Avoids fabricating arbitrary  Awaiting 20-PDF pilot  OPEN —
+                                 established from 20-paper empirical pilot         error rates before empirical  measurements.          PENDING PILOT
+                                 covering 5 diverse layout strata.                 data is recorded.                                    EXECUTION
+--------------------------------------------------------------------------------------------------------------------------------------------------
+DEC-09 Reference List Handling   Bibliographies parsed to metadata only;           Prevents artificial lexical   None (chunk exclusion  PROVISIONAL —
+                                 excluded from searchable retrieval chunks.        matching against cited titles locked).               PENDING RESEARCHER
+                                                                                   instead of evidence.                                 SIGN-OFF
+--------------------------------------------------------------------------------------------------------------------------------------------------
+DEC-10 Screening & Calibration   Single reviewer + 10% stratified calibration      Transparently states staffing Awaiting primary       PROVISIONAL —
+                                 sample re-screened after 14-day masked washout.   limits while quantifying      screening execution.   PENDING RESEARCHER
+                                 Intra-rater kappa reported.                       intra-rater stability.                               SIGN-OFF
+==================================================================================================================================================
 ```
 
 ---
 
-## 5. Explicit Prohibitions & Current Gate Status
+## 4. Strict Boundaries & Current Gate Status
 
-### 5.1 Strict Operational Prohibitions
-To preserve scientific integrity and prevent experimental confounding, the following actions remain **STRICTLY PROHIBITED**:
+### 4.1 Strict Operational Prohibitions
+To ensure compliance with scientific integrity protocols, the following actions remain **STRICTLY PROHIBITED**:
 - **DO NOT** execute web scraping or download real scientific papers.
 - **DO NOT** execute the 300-slot pilot search or query live APIs until sign-off is given.
 - **DO NOT** execute the 20-paper PDF extraction pilot until sign-off is given.
@@ -235,10 +280,9 @@ To preserve scientific integrity and prevent experimental confounding, the follo
 - **DO NOT** run retrieval or generation experiments.
 - **DO NOT** alter the frozen research question.
 
-### 5.2 Current Gate Verdict
-- **Protocol Consistency & Sign-Off Preparation:** **COMPLETE**
+### 4.2 Current Gate Verdict
+- **Protocol Consistency & Sign-Off Checklist:** **COMPLETE**
 - **Researcher Explicit Sign-Off:** **PENDING RESEARCHER ACTION**
 - **Real-Paper Discovery Authorization:** **BLOCKED**
 - **Scientific Corpus Readiness:** **BLOCKED**
 - **Confirmatory Experiment Readiness:** **BLOCKED**
-
