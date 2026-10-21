@@ -7,6 +7,12 @@
 
 ---
 
+## Researcher Decision Log (2026-10-21)
+
+- **DEC-02:** Alternative B approved with the caveat that distinct first authors and no candidate-author overlap do not establish independent research groups.
+- **Hypotheses:** v0.2 framing approved: directional H1 for retrieval quality; cautious downstream answer-quality and attribution comparisons; H4 exploratory/non-directional.
+- **DEC-05:** Ten proposed known-item candidates approved in principle, subject to final bibliographic and eligibility checks. This does not authorize any search or pilot.
+
 ## Governing Research Question (Frozen)
 
 > *How do BM25, dense, and hybrid retrieval strategies, compared under identical corpus, question-benchmark, preprocessing, generator, prompt, and evaluation conditions, affect retrieval quality, answer quality, and evidence attribution in question answering over solar-PV scientific literature?*
@@ -18,10 +24,10 @@
 | Decision ID | Area | Decision Topic | Selected Policy | Status | Approval Level Required |
 |---|---|---|---|---|---|
 | **DEC-01** | Publication Period | Core Search Window | 2024–2026 (inclusive) as primary discovery window. | **PROVISIONAL** | Project Lead / Methodologist |
-| **DEC-02** | Publication Period | Pre-2024 Foundational Literature | Algorithmic backward citation chaining ($\ge 2$ independent core citations); strict labeling as `foundational_earlier=true`. | **PROVISIONAL** | Project Lead / Methodologist |
+| **DEC-02** | Publication Period | Pre-2024 Foundational Literature | Algorithmic backward citation chaining (≥2 core primary citing papers with distinct first authors and no candidate-author overlap with either citing paper); explicitly does not prove lab/institution independence. | **RESEARCHER-APPROVED 2026-10-21** | Project Lead / Methodologist |
 | **DEC-03** | Publication Period | Publication Date Semantics | Formal peer-reviewed Version of Record (VoR) year governs `publication_year`. Both online and issue dates captured. | **PROVISIONAL** | Technical Lead |
 | **DEC-04** | Discovery Sources | Source Mix & Roles | Multi-source strategy: OpenAlex (broad discovery/concepts), Crossref (authoritative DOI/metadata), Semantic Scholar (citations), and lawful OA repositories (full-text). | **PROVISIONAL** | Project Lead |
-| **DEC-05** | Discovery Sources | Query Registry Architecture | Four focused query families (Q1: Broad Identity, Q2: Systems/Degradation, Q3: Materials/Devices, Q4: Forecasting/Diagnostics) with exact syntax and parameter tracking. | **PROVISIONAL** | Technical Lead |
+| **DEC-05** | Discovery Sources | Query Registry Architecture | Four focused query families (Q1–Q4); ten known-item candidates approved in principle on 2026-10-21, subject to final bibliographic and eligibility checks. API endpoint/sorting verification remains pilot-dependent. | **PARTIALLY APPROVED 2026-10-21; FINAL CHECKS OPEN** | Technical Lead |
 | **DEC-06** | Document Types | Review Article Policy | Stratified inclusion: Review articles included but explicitly tagged (`document_type="review"`) to allow primary vs. review sensitivity analysis. | **PROVISIONAL** | Methodologist |
 | **DEC-07** | Extraction & Media | Tables, Equations & Figures | Text-first representation: Captions and structured tabular text extracted; images/pixels excluded; formulas captured in LaTeX/MathML text when available. | **PROVISIONAL** | Technical Lead |
 | **DEC-08** | Extraction Quality | OCR & Quality Thresholds | No arbitrary numeric cutoff before pilot. Numerical thresholds remain OPEN pending a 20-paper extraction pilot. | **OPEN** | Calibration Pilot Lead |
