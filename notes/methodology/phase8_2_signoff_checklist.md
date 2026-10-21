@@ -121,7 +121,7 @@ API queries must use deterministic parameters and log raw responses:
 #### 2.2.3 Predefined 10 Known-Item Landmark Benchmark Papers
 
 > [!WARNING]
-> **DEC-05 STATUS (Candidates Recorded; Final Eligibility Audit Open):** The researcher approved the ten candidate papers in principle on 2026-10-21. Table 2.2.3 now records specific titles, DOIs, first-author/year metadata, publisher records, and access/type caveats. Before the pilot, complete the final document-type and bibliographic audit; check lawful full-text access separately from metadata discoverability. If a candidate fails the declared rules, pause and present a replacement for review.
+> **DEC-05 STATUS (Candidates Recorded; Final Eligibility Audit Open):** The researcher approved the ten candidate papers in principle on 2026-10-21. Publisher records confirm titles, DOIs, and 2024 publication metadata for the candidates; the current list nevertheless uses six topical labels while the protocol requires five declared subdomains. KI-01 and KI-08 have not been confirmed as lawful OA full-text corpus inputs. Resolve the stratum mapping and record metadata-discovery sensitivity separately from full-text corpus eligibility before pilot authorization.
 
 | Item ID | Topic Subdomain | Candidate paper title | First author / year | DOI | Bibliographic source and current eligibility note |
 |---|---|---|---|---|---|
@@ -216,7 +216,7 @@ A systematic comparison across all project governance documents was conducted:
 
 ## 3. Researcher Protocol Sign-Off Matrix
 
-The following matrix documents each protocol decision, its current policy, evidentiary rationale, remaining uncertainties, and sign-off status. DEC-02 and the hypothesis framing have been researcher-approved; DEC-05 known-item candidates are approved in principle subject to eligibility checks. All other statuses remain as shown and no unapproved decision is inferred.
+The following matrix documents each protocol decision, rationale, remaining uncertainties, and sign-off status. On 2026-10-21, the researcher approved the remaining policy and selection procedures as a bundle. Numeric extraction thresholds, actual model/parameter values, and benchmark size remain pilot/development-dependent; DEC-05 stratification and full-text eligibility remain open.
 
 ```
 ==================================================================================================================================================
@@ -283,7 +283,7 @@ To ensure compliance with scientific integrity protocols, the following actions 
 ### 4.2 Current Gate Verdict
 - **Protocol Consistency & Sign-Off Checklist:** **UPDATED; PARTIAL SIGN-OFF RECORDED**
 - **Researcher Explicit Sign-Off:** **INCOMPLETE** — DEC-02 and hypothesis framing approved; DEC-05 candidates approved in principle.
-- **Known-item eligibility audit:** **OPEN** — metadata has been checked against publisher records; full-text access and document-type eligibility remain separate checks.
+- **Known-item eligibility audit:** **OPEN** — titles/DOIs/year verified against publisher records where available; the list currently spans six topical labels rather than five declared strata. KI-01 and KI-08 full texts are not confirmed as lawful OA corpus inputs.
 - **Real-Paper Discovery Authorization:** **BLOCKED**
 - **Scientific Corpus Readiness:** **BLOCKED**
 - **Confirmatory Experiment Readiness:** **BLOCKED**
