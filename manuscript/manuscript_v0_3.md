@@ -2,7 +2,7 @@
 
 **Authors:** Anonymous Authors (Manuscript v0.3 — Researcher Decisions Recorded; Pre-Experimental Formulation)  
 **Date:** October 2026  
-**Status:** DRAFT MANUSCRIPT v0.3 (DEC-02 AND HYPOTHESIS FRAMING APPROVED; DEC-05 CANDIDATES APPROVED IN PRINCIPLE; FINAL PROTOCOL CLOSURE AND PILOT REMAIN BLOCKED)
+**Status:** DRAFT MANUSCRIPT v0.3 (PROTOCOL CLOSED 2026-10-21; KNOWN-ITEM BENCHMARK FROZEN; PILOT EXECUTION ON HOLD)
 
 ---
 
@@ -302,14 +302,14 @@ To incorporate seminal foundational research without introducing subjective cher
 - **Review Citations Excluded:** Citations originating from review articles do not count toward the $\ge 2$ threshold.
 - All chained papers are permanently tagged with `foundational_earlier=true` and their citing DOIs logged.
 
-#### 5.2.3 Discovery Sources and Pinned Query Families (DEC-04 procedure approved 2026-10-21; DEC-05 known-item eligibility reconciliation open)
+#### 5.2.3 Discovery Sources and Pinned Query Families (DEC-04 approved; DEC-05 metadata benchmark frozen 2026-10-21)
 Literature discovery utilizes four complementary sources: OpenAlex, Crossref, Semantic Scholar, and lawful Open Access full-text repositories. Four pinned query families are executed:
 - **Q1 (Broad Identity):** Broad solar photovoltaic technology and device identity.
 - **Q2 (Systems & Degradation):** Reliability, PID, degradation kinetics, thermal behavior, failure analysis.
 - **Q3 (Materials & Cell Architectures):** TOPCon, heterojunction (HJT), perovskite-silicon tandems, thin films.
 - **Q4 (Forecasting & Operations):** PV power forecasting, fault diagnostics, string inverter monitoring.
 
-*Coverage Notice:* No claim of exhaustive or complete bibliographic coverage is made. The ten known-item candidates are listed in `notes/methodology/phase8_2_signoff_checklist.md` and were approved in principle on 2026-10-21, subject to final bibliographic and eligibility checks. Metadata discovery sensitivity is distinct from lawful full-text corpus eligibility. Discovery sources, query logging, and deterministic client-side sorting fallback were approved on 2026-10-21. Server-side sorting, pagination, and endpoint behavior remain to be verified during an authorized pilot. The pilot remains blocked until the remaining protocol decisions are signed off.
+*Coverage Notice:* No claim of exhaustive or complete bibliographic coverage is made. The ten known-item metadata targets are frozen in `notes/methodology/phase8_2_signoff_checklist.md` §2.2.3: two targets each in tandem PV, silicon technologies, module reliability, PV forecasting, and emerging PV. KI-10 is “Organic Solar Modules with Good Stability under Ultraviolet Irradiation” (DOI 10.1002/solr.202400101). Metadata discovery sensitivity is distinct from lawful full-text corpus eligibility. Discovery sources, query logging, and deterministic client-side sorting fallback were approved on 2026-10-21. Server-side sorting, pagination, and endpoint behavior remain to be verified during an authorized pilot. The protocol is closed, but the user has instructed that no pilot be run yet.
 
 #### 5.2.4 Dual-Index Stratification (DEC-06 — Policy Approved 2026-10-21)
 To evaluate the potential confounding effect of review articles, two retrieval indexes are constructed:
