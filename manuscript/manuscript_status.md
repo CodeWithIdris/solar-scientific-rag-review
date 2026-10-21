@@ -63,9 +63,10 @@ Version 0.2 implements the comprehensive integrity audit across five core dimens
 Researcher decisions recorded on 2026-10-21:
 - **DEC-02:** Alternative B approved, with the caveat that distinct first authors and candidate-author non-overlap do not prove independent research groups.
 - **Hypotheses:** v0.2 framing approved: directional H1 for retrieval quality; cautious downstream answer-quality and attribution comparisons; exploratory/non-directional H4.
-- **DEC-05:** Ten known-item candidates approved in principle subject to final bibliographic and eligibility checks.
+- **DEC-05:** Ten-item known-item metadata benchmark frozen across five subdomains after approval of the KI-10 replacement.
+- **Protocol:** Policy/selection procedures closed. Pilot execution remains on hold pending separate authorization.
 
-Remaining decisions and gates:
+Remaining development-stage decisions and execution gates:
 1. **Protocol policy/selection procedures:** Approved and recorded in the master protocol closure register on 2026-10-21.
 2. **DEC-05:** Known-item metadata benchmark frozen at ten targets across five subdomains, two per subdomain. Lawful full-text access remains a per-paper corpus-ingestion check, not a blocker to metadata-discovery sensitivity.
 3. **DEC-08:** Numerical extraction thresholds remain open until the 20-paper calibration pilot is authorized and completed.
