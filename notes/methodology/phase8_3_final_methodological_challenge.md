@@ -297,3 +297,10 @@ To grant formal protocol sign-off and unlock Phase 9 (Pilot Execution):
 
 **Real-paper discovery remains BLOCKED until these actions are completed.**
 
+
+
+---
+
+## Researcher decision update (2026-10-21)
+
+This report is a historical audit snapshot. Subsequent researcher decisions approved DEC-02 Alternative B, approved the v0.2 hypothesis framing, and approved the ten known-item candidates in principle subject to final bibliographic and eligibility checks. These later decisions are recorded in `notes/methodology/protocol_closure_register.md`. They do not authorize the pilot; remaining sign-offs and the candidate eligibility audit are still required.
