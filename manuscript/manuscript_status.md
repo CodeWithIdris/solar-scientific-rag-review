@@ -2,9 +2,9 @@
 
 **Project Title:** Evaluating Retrieval Strategies for Evidence-Grounded Question Answering over Solar Photovoltaic Scientific Literature  
 **Active Document:** `manuscript/manuscript_v0_3.md`  
-**Version:** v0.3 (Researcher Decisions Recorded; Protocol Closure Still Pending)  
+**Version:** v0.3 (Protocol Closed; Execution Hold Active)  
 **Date:** 2026-10-21  
-**Current Status:** POLICY/SELECTION PROCEDURES APPROVED 2026-10-21; DEC-05 FIVE-STRATUM MAPPING AND FULL-TEXT ELIGIBILITY RECONCILIATION OPEN; PILOT STRICTLY BLOCKED  
+**Current Status:** PROTOCOL CLOSED 2026-10-21; KNOWN-ITEM BENCHMARK FROZEN; PILOTS NOT AUTHORIZED YET  
 
 ---
 
@@ -66,11 +66,12 @@ Researcher decisions recorded on 2026-10-21:
 - **DEC-05:** Ten known-item candidates approved in principle subject to final bibliographic and eligibility checks.
 
 Remaining decisions and gates:
-1. DEC-01, DEC-03, DEC-04, DEC-06, DEC-07, DEC-08 (threshold-setting procedure), DEC-09, DEC-10, DEC-11, DEC-12, and DEC-13 remain open in the master protocol closure register.
-2. DEC-05 candidate eligibility must be finalized; full-text lawful access is separate from metadata discoverability. Failed candidates must be flagged for replacement review.
-3. DEC-08 extraction thresholds remain open until the 20-paper calibration pilot is authorized and completed.
-4. Production embedding model, chunking parameters, context budget, and generator model remain unresolved.
-5. Benchmark size and composition require corpus-informed justification and prospective precision/power assessment.
+1. **Protocol policy/selection procedures:** Approved and recorded in the master protocol closure register on 2026-10-21.
+2. **DEC-05:** Known-item metadata benchmark frozen at ten targets across five subdomains, two per subdomain. Lawful full-text access remains a per-paper corpus-ingestion check, not a blocker to metadata-discovery sensitivity.
+3. **DEC-08:** Numerical extraction thresholds remain open until the 20-paper calibration pilot is authorized and completed.
+4. **DEC-11/DEC-12:** Actual production embedding, chunking, fusion, generator, prompt, decoding, and context-budget values remain to be selected/frozen through the approved development procedure.
+5. **DEC-13:** Final benchmark size/category mix remains to be justified after corpus freeze.
+6. **Execution hold:** Both pilots and all real-paper acquisition remain unrun and unauthorized until the user separately authorizes execution.
 
 ## 5. Execution State and Next Steps
 
@@ -85,13 +86,11 @@ MANUSCRIPT & EXPERIMENTAL READINESS STATUS (VERSION 0.3)
 [X] SOFTWARE UNIT TESTS: 69 / 69 passing (0 failures, 0 errors)
 [X] SYNTHETIC SMOKE TEST: Passed (2 docs, 2 questions, 6 condition runs)
 ---------------------------------------------------------------------------------------------
-[X] DEC-02 CITATION CHAINING APPROVED: 2026-10-21
-[X] HYPOTHESIS FRAMING APPROVED: 2026-10-21
-[X] DEC-05 KNOWN-ITEM CANDIDATES APPROVED IN PRINCIPLE; FINAL ELIGIBILITY AUDIT OPEN
-[X] POLICY/SELECTION PROCEDURES APPROVED: 2026-10-21
-[~] DEC-05 FIVE-STRATUM MAPPING / FULL-TEXT ELIGIBILITY RECONCILIATION OPEN
-[ ] 300-SLOT DISCOVERY PILOT: BLOCKED
-[ ] 20-PAPER EXTRACTION CALIBRATION PILOT: BLOCKED
+[X] PROTOCOL FORMALLY CLOSED: 2026-10-21
+[X] DEC-05 KNOWN-ITEM BENCHMARK FROZEN: 10 ITEMS / 5 SUBDOMAINS
+[!] USER EXECUTION HOLD: NO PILOT UNTIL SEPARATE AUTHORIZATION
+[ ] 300-SLOT DISCOVERY PILOT: NOT RUN; ON HOLD
+[ ] 20-PAPER EXTRACTION CALIBRATION PILOT: NOT RUN; ON HOLD
 [ ] REAL FULL-TEXT DOWNLOADING: BLOCKED
 [ ] QUESTION BENCHMARK CONSTRUCTION: BLOCKED
 [ ] CONFIRMATORY EXPERIMENT: BLOCKED
