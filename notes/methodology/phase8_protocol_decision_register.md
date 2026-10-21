@@ -3,7 +3,7 @@
 **Project:** Solar Scientific RAG Literature Review  
 **Date:** 2026-10-09  
 **Phase:** Phase 8 — Corpus Protocol Finalization  
-**Status:** PROTOCOL SPECIFICATION ONLY — REAL-PAPER DISCOVERY & EXPERIMENT EXECUTION BLOCKED  
+**Status:** PROTOCOL CLOSED 2026-10-21 — PILOT EXECUTION HOLD ACTIVE  
 
 ---
 
@@ -27,7 +27,7 @@
 | **DEC-02** | Publication Period | Pre-2024 Foundational Literature | Algorithmic backward citation chaining (≥2 core primary citing papers with distinct first authors and no candidate-author overlap with either citing paper); explicitly does not prove lab/institution independence. | **RESEARCHER-APPROVED 2026-10-21** | Project Lead / Methodologist |
 | **DEC-03** | Publication Period | Publication Date Semantics | Formal peer-reviewed Version of Record (VoR) year governs `publication_year`. Both online and issue dates captured. | **RESEARCHER-APPROVED 2026-10-21** | Technical Lead |
 | **DEC-04** | Discovery Sources | Source Mix & Roles | Multi-source strategy: OpenAlex (broad discovery/concepts), Crossref (authoritative DOI/metadata), Semantic Scholar (citations), and lawful OA repositories (full-text). | **PROCEDURE APPROVED 2026-10-21; PILOT VERIFICATION PENDING** | Project Lead |
-| **DEC-05** | Discovery Sources | Query Registry Architecture | Four focused query families (Q1–Q4); ten known-item candidates approved in principle on 2026-10-21, subject to final bibliographic and eligibility checks. API endpoint/sorting verification remains pilot-dependent. | **PARTIALLY APPROVED 2026-10-21; STRATUM/ELIGIBILITY CHECK OPEN** | Technical Lead |
+| **DEC-05** | Discovery Sources | Query Registry Architecture | Four focused query families (Q1–Q4); ten known-item metadata targets frozen 2026-10-21 with two targets in each of five subdomains; KI-10 is the approved organic-solar-module replacement. Full-text access remains a separate corpus-screening check. API endpoint/sorting verification remains pilot-dependent. | **CLOSED 2026-10-21; PILOT HOLD ACTIVE** | Technical Lead |
 | **DEC-06** | Document Types | Review Article Policy | Stratified inclusion: Review articles included but explicitly tagged (`document_type="review"`) to allow primary vs. review sensitivity analysis. | **RESEARCHER-APPROVED 2026-10-21** | Methodologist |
 | **DEC-07** | Extraction & Media | Tables, Equations & Figures | Text-first representation: Captions and structured tabular text extracted; images/pixels excluded; formulas captured in LaTeX/MathML text when available. | **RESEARCHER-APPROVED 2026-10-21** | Technical Lead |
 | **DEC-08** | Extraction Quality | OCR & Quality Thresholds | No arbitrary numeric cutoff before pilot. Numerical thresholds remain OPEN pending a 20-paper extraction pilot. | **PROCEDURE APPROVED 2026-10-21; NUMERIC VALUES PILOT-DEPENDENT** | Calibration Pilot Lead |
@@ -188,7 +188,9 @@
 
 | Gate | Status | Evaluation |
 |---|---|---|
-| **Protocol Specification** | **COMPLETE (Provisional)** | All 10 corpus design decisions formally specified with trade-offs. |
-| **Scientific Corpus Readiness** | **BLOCKED** | Real-paper discovery remains unauthorized until protocol decisions DEC-01 through DEC-10 receive final project review. |
-| **Confirmatory Experiment Readiness** | **BLOCKED** | Production retrieval models, chunking parameters, generator models, and Phase 4 benchmark unapproved. |
+| **Protocol Specification** | **CLOSED** | Researcher policy/selection procedures are approved; pilot-dependent numeric thresholds and model/benchmark choices remain assigned to their approved later stages. |
+| **Known-Item Metadata Benchmark** | **FROZEN** | Ten items, five declared subdomains, two items per subdomain; KI-10 replacement recorded. |
+| **Pilot Execution** | **ON HOLD — NOT AUTHORIZED YET** | User explicitly instructed not to run any pilot. |
+| **Scientific Corpus Readiness** | **NOT ESTABLISHED** | No real corpus has been acquired, screened, or ingested. |
+| **Confirmatory Experiment Readiness** | **BLOCKED** | Corpus, benchmark, and development-stage model/parameter choices remain unbuilt/unvalidated. |
 
