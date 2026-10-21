@@ -1,10 +1,10 @@
 # Manuscript Status and Drafting Tracker
 
 **Project Title:** Evaluating Retrieval Strategies for Evidence-Grounded Question Answering over Solar Photovoltaic Scientific Literature  
-**Active Document:** `manuscript/manuscript_v0_2.md`  
-**Version:** v0.2 (Audited & Methodologically Hardened Protocol Draft)  
+**Active Document:** `manuscript/manuscript_v0_3.md`  
+**Version:** v0.3 (Researcher Decisions Recorded; Protocol Closure Still Pending)  
 **Date:** 2026-10-21  
-**Current Status:** PROTOCOL & FOUNDATIONAL SECTIONS HARDENED AGAINST SCIENTIFIC CRITIQUE; RESULTS & DISCUSSION SECTIONS PROVISIONALLY OUTLINED; EXPERIMENTAL EXECUTION STRICTLY BLOCKED  
+**Current Status:** DEC-02 AND HYPOTHESIS FRAMING APPROVED; DEC-05 CANDIDATES APPROVED IN PRINCIPLE; FINAL ELIGIBILITY AUDIT AND REMAINING PROTOCOL SIGN-OFFS PENDING; PILOT BLOCKED STRICTLY BLOCKED  
 
 ---
 
@@ -60,36 +60,35 @@ Version 0.2 implements the comprehensive integrity audit across five core dimens
 
 ## 4. Methodological Decisions Requiring Researcher Approval
 
-Before real-paper discovery, pilot execution, or experiment execution can be authorized, the researcher must formally resolve the following items in [`notes/methodology/protocol_closure_register.md`](../notes/methodology/protocol_closure_register.md):
+Researcher decisions recorded on 2026-10-21:
+- **DEC-02:** Alternative B approved, with the caveat that distinct first authors and candidate-author non-overlap do not prove independent research groups.
+- **Hypotheses:** v0.2 framing approved: directional H1 for retrieval quality; cautious downstream answer-quality and attribution comparisons; exploratory/non-directional H4.
+- **DEC-05:** Ten known-item candidates approved in principle subject to final bibliographic and eligibility checks.
 
-1. **DEC-05 (Nomination of 10 Known-Item Benchmark Papers):**
-   - Provide verified Titles and DOIs for 10 landmark 2024 peer-reviewed solar-PV papers across the 5 declared subdomains.
-2. **DEC-02 (Citation Chaining Rule Approval):**
-   - Formally approve Alternative B (Distinct First Authors + 100% Candidate Anti-Self-Citation) to replace the unexecutable "corresponding author" API assumption.
-3. **DEC-08 (Extraction Quality Threshold Policy):**
-   - Confirm that numerical CER/WER thresholds will be established empirically from the 20-paper calibration pilot rather than pre-declared arbitrarily.
-4. **DEC-11 & DEC-12 (Production Retrieval & Generation Architecture):**
-   - Approve final selections for chunk size/overlap, dense embedding model, and generator LLM.
-5. **DEC-13 (Benchmark Size and Stratification):**
-   - Approve the final benchmark question count and difficulty distribution.
-
----
+Remaining decisions and gates:
+1. DEC-01, DEC-03, DEC-04, DEC-06, DEC-07, DEC-09, DEC-10, DEC-11, DEC-12, and DEC-13 remain open in the master protocol closure register.
+2. DEC-05 candidate eligibility must be finalized; full-text lawful access is separate from metadata discoverability. Failed candidates must be flagged for replacement review.
+3. DEC-08 extraction thresholds remain open until the 20-paper calibration pilot is authorized and completed.
+4. Production embedding model, chunking parameters, context budget, and generator model remain unresolved.
+5. Benchmark size and composition require corpus-informed justification and prospective precision/power assessment.
 
 ## 5. Execution State and Next Steps
 
 ```
 =============================================================================================
-MANUSCRIPT & EXPERIMENTAL READINESS STATUS (VERSION 0.2)
+MANUSCRIPT & EXPERIMENTAL READINESS STATUS (VERSION 0.3)
 =============================================================================================
 [X] PROTOCOL CLOSURE REGISTER: notes/methodology/protocol_closure_register.md
-[X] MANUSCRIPT DRAFT v0.2: manuscript/manuscript_v0_2.md (Audited & Methodologically Hardened)
+[X] MANUSCRIPT DRAFT v0.3: manuscript/manuscript_v0_3.md (Researcher Decisions Recorded; Protocol Closure Pending)
 [X] EVIDENCE & CLAIM REGISTER: manuscript/evidence_and_claim_register.csv (50 claims, 10 columns)
 [X] MANUSCRIPT TRACKER: manuscript/manuscript_status.md
 [X] SOFTWARE UNIT TESTS: 69 / 69 passing (0 failures, 0 errors)
 [X] SYNTHETIC SMOKE TEST: Passed (2 docs, 2 questions, 6 condition runs)
 ---------------------------------------------------------------------------------------------
-[ ] RESEARCHER APPROVAL: PENDING (DEC-01 to DEC-13)
-[ ] 10 KNOWN-ITEM DOIS: PENDING RESEARCHER NOMINATION
+[X] DEC-02 CITATION CHAINING APPROVED: 2026-10-21
+[X] HYPOTHESIS FRAMING APPROVED: 2026-10-21
+[X] DEC-05 KNOWN-ITEM CANDIDATES APPROVED IN PRINCIPLE; FINAL ELIGIBILITY AUDIT OPEN
+[ ] REMAINING PROTOCOL SIGN-OFFS: DEC-01, DEC-03, DEC-04, DEC-06, DEC-07, DEC-09, DEC-10, DEC-11, DEC-12, DEC-13
 [ ] 300-SLOT DISCOVERY PILOT: BLOCKED
 [ ] 20-PAPER EXTRACTION CALIBRATION PILOT: BLOCKED
 [ ] REAL FULL-TEXT DOWNLOADING: BLOCKED
