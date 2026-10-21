@@ -302,21 +302,21 @@ To incorporate seminal foundational research without introducing subjective cher
 - **Review Citations Excluded:** Citations originating from review articles do not count toward the $\ge 2$ threshold.
 - All chained papers are permanently tagged with `foundational_earlier=true` and their citing DOIs logged.
 
-#### 5.2.3 Discovery Sources and Pinned Query Families (DEC-04 provisional; DEC-05 candidate list approved in principle 2026-10-21)
+#### 5.2.3 Discovery Sources and Pinned Query Families (DEC-04 procedure approved 2026-10-21; DEC-05 known-item eligibility reconciliation open)
 Literature discovery utilizes four complementary sources: OpenAlex, Crossref, Semantic Scholar, and lawful Open Access full-text repositories. Four pinned query families are executed:
 - **Q1 (Broad Identity):** Broad solar photovoltaic technology and device identity.
 - **Q2 (Systems & Degradation):** Reliability, PID, degradation kinetics, thermal behavior, failure analysis.
 - **Q3 (Materials & Cell Architectures):** TOPCon, heterojunction (HJT), perovskite-silicon tandems, thin films.
 - **Q4 (Forecasting & Operations):** PV power forecasting, fault diagnostics, string inverter monitoring.
 
-*Coverage Notice:* No claim of exhaustive or complete bibliographic coverage is made. The ten known-item candidates are listed in `notes/methodology/phase8_2_signoff_checklist.md` and were approved in principle on 2026-10-21, subject to final bibliographic and eligibility checks. Metadata discovery sensitivity is distinct from lawful full-text corpus eligibility. Pinned server-side sorting parameters are provisional pending endpoint checks during the 300-slot pilot; deterministic client-side sorting will serve as fallback. The pilot remains blocked until the remaining protocol decisions are signed off.
+*Coverage Notice:* No claim of exhaustive or complete bibliographic coverage is made. The ten known-item candidates are listed in `notes/methodology/phase8_2_signoff_checklist.md` and were approved in principle on 2026-10-21, subject to final bibliographic and eligibility checks. Metadata discovery sensitivity is distinct from lawful full-text corpus eligibility. Discovery sources, query logging, and deterministic client-side sorting fallback were approved on 2026-10-21. Server-side sorting, pagination, and endpoint behavior remain to be verified during an authorized pilot. The pilot remains blocked until the remaining protocol decisions are signed off.
 
-#### 5.2.4 Dual-Index Stratification (DEC-06 — Provisional)
+#### 5.2.4 Dual-Index Stratification (DEC-06 — Policy Approved 2026-10-21)
 To evaluate the potential confounding effect of review articles, two retrieval indexes are constructed:
 - **Primary Corpus Index ($I_{\text{primary}}$):** Restricts retrievable text chunks strictly to primary empirical and theoretical research articles (`journal_article` and peer-reviewed `conference_paper`). Review articles, reports, preprints, retractions, and corrections are excluded.
 - **Sensitivity Corpus Index ($I_{\text{all}}$):** Incorporates primary research articles plus peer-reviewed review and systematic review articles (`review`, `systematic_review`). Retractions and corrections remain excluded from chunk indexing.
 
-#### 5.2.5 Text-First Extraction and Artifact Policy (DEC-07, DEC-08, DEC-09)
+#### 5.2.5 Text-First Extraction and Artifact Policy (DEC-07/DEC-08/DEC-09 — Policies/Procedure Approved 2026-10-21; Threshold Values Pending Pilot)
 - **Text-First Extraction (Provisional):** Full text is extracted via PyMuPDF. Figure captions and structured Markdown tables are extracted; raw image pixels and raster graphics are excluded to maintain a text-focused comparison. Mathematical equations are captured in text/LaTeX representation where available.
 - **Extraction Thresholds (OPEN):** Quantitative quality thresholds (CER/WER) remain **OPEN** pending empirical distribution observations from a stratified 20-paper calibration pilot (5 two-column, 5 mathematical, 5 tabular, 3 conference, 2 scanned/OCR). Arbitrary cutoffs are avoided.
 - **Reference Lists (Provisional):** Bibliographies are extracted to structured metadata only and are strictly excluded from retrievable text chunks to prevent false lexical matches against cited titles.
