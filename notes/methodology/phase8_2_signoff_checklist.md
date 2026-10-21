@@ -121,7 +121,7 @@ API queries must use deterministic parameters and log raw responses:
 #### 2.2.3 Predefined 10 Known-Item Landmark Benchmark Papers
 
 > [!WARNING]
-> **CRITICAL BLOCKER 1 (Uninstantiated Known-Item Benchmark):** Table 2.2.3 currently defines target technological scopes and representative journal venues, but lacks specific, resolved paper titles and DOIs. To ensure an executable benchmark test set and prevent post-hoc cherry-picking, the researcher must nominate and freeze 10 specific peer-reviewed 2024 papers with verified DOIs before the 300-slot pilot search is executed.
+> **DEC-05 STATUS (Candidates Recorded; Final Eligibility Audit Open):** The researcher approved the ten candidate papers in principle on 2026-10-21. Table 2.2.3 now records specific titles, DOIs, first-author/year metadata, publisher records, and access/type caveats. Before the pilot, complete the final document-type and bibliographic audit; check lawful full-text access separately from metadata discoverability. If a candidate fails the declared rules, pause and present a replacement for review.
 
 | Item ID | Topic Subdomain | Candidate paper title | First author / year | DOI | Bibliographic source and current eligibility note |
 |---|---|---|---|---|---|
@@ -216,7 +216,7 @@ A systematic comparison across all project governance documents was conducted:
 
 ## 3. Researcher Protocol Sign-Off Matrix
 
-The following matrix documents each protocol decision, its current policy, evidentiary rationale, remaining uncertainties, approval level required, and sign-off status. **Decisions are marked as PROVISIONAL — PENDING RESEARCHER SIGN-OFF or OPEN; none are marked approved on the researcher's behalf.**
+The following matrix documents each protocol decision, its current policy, evidentiary rationale, remaining uncertainties, and sign-off status. DEC-02 and the hypothesis framing have been researcher-approved; DEC-05 known-item candidates are approved in principle subject to eligibility checks. All other statuses remain as shown and no unapproved decision is inferred.
 
 ```
 ==================================================================================================================================================
@@ -228,9 +228,9 @@ DEC-01 Core Publication Window   2024–2026 inclusive based on formal VoR year 
                                  (Crossref/publisher authoritative metadata).      while maintaining bounded     at search execution.   PENDING RESEARCHER
                                                                                    discovery frame.                                     SIGN-OFF
 --------------------------------------------------------------------------------------------------------------------------------------------------
-DEC-02 Pre-2024 Chaining         >=2 independent core primary papers; lead         Prevents self-citation gaming Exact yield of chained PROVISIONAL —
-                                 authors disjoint; <50% middle author overlap.     without excluding landmark    candidates prior to    PENDING RESEARCHER
-                                 Review citations excluded.                        multi-institution studies.    search run.            SIGN-OFF
+DEC-02 Pre-2024 Chaining         >=2 core primary citing papers with distinct     Prevents direct candidate    Candidate yield remains RESEARCHER-APPROVED
+                                 first authors; no candidate-author overlap.       self-citation; does not      unknown until search.  2026-10-21
+                                 Does not claim research-group independence.       claim lab independence.
 --------------------------------------------------------------------------------------------------------------------------------------------------
 DEC-03 Date Precedence           Formal VoR > Online-First > Accepted Manuscript.  Prevents historical papers    None (precedence order PROVISIONAL —
                                  Deposit date substitution strictly prohibited.    from masquerading as new via  deterministic).        PENDING RESEARCHER
@@ -240,9 +240,9 @@ DEC-04 Discovery Source Mix      Multi-source: OpenAlex, Crossref, Semantic     
                                  Scholar, lawful OA repositories. No single        authoritative DOI metadata    ratio (tested in       PENDING RESEARCHER
                                  source claimed complete.                          and open access resolution.   300-slot pilot).       SIGN-OFF
 --------------------------------------------------------------------------------------------------------------------------------------------------
-DEC-05 Query Registry            4 Query Families (Q1–Q4) with exact parameter     Ensures deterministic,        None (syntax templates PROVISIONAL —
-                                 logging and deterministic ordering.               reproducible search queries   locked).               PENDING RESEARCHER
-                                 10 predefined known-item benchmark papers.        grounded in PV subdomains.                           SIGN-OFF
+DEC-05 Query Registry            Four query families; ten candidate known-items   Makes known-item test         API sorting and final   PARTIALLY APPROVED
+                                 approved in principle subject to final checks.   executable; separates        eligibility checks     2026-10-21;
+                                                                                   metadata discovery from OA.  remain open.           ELIGIBILITY OPEN
 --------------------------------------------------------------------------------------------------------------------------------------------------
 DEC-06 Review Stratification     I_primary: primary research articles only.        Prevents review summaries     None (index boundary   PROVISIONAL —
                                  I_all: primary research + review articles.        acting as artificial shortcut locked).               PENDING RESEARCHER
